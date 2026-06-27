@@ -356,7 +356,7 @@ const PERSONA_DATA = {
     ]
   },
   devsecops: {
-    role: "DevSecOps Engineer",
+    role: "DevSecOps",
     statusText: "DEVSECOPS_PROTOCOL_ACTIVE",
     summary: "Cybersecurity graduate with hands-on experience in secure SDLC, CI/CD security, vulnerability management, and cloud security fundamentals. Skilled in Linux, Git, Docker, security automation, and application security testing (SAST/DAST).",
     badges: ["DevSecOps", "Secure SDLC", "Kubernetes", "CI/CD Security"],
@@ -556,27 +556,25 @@ function initCanvasGrid() {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
-  let width = (canvas.width = canvas.offsetWidth);
-  let height = (canvas.height = canvas.offsetHeight);
+  let width = (canvas.width = window.innerWidth);
+  let height = (canvas.height = window.innerHeight);
 
   const particles = [];
-  const maxParticles = 50;
-  const connectionDistance = 120;
+  const maxParticles = 150;
+  const connectionDistance = 130;
   const mouse = { x: null, y: null, radius: 150 };
 
   window.addEventListener('resize', () => {
-    width = canvas.width = canvas.offsetWidth;
-    height = canvas.height = canvas.offsetHeight;
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
   });
 
-  const heroSection = document.getElementById('hero');
-  heroSection.addEventListener('mousemove', (e) => {
-    const rect = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
+  document.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
   });
 
-  heroSection.addEventListener('mouseleave', () => {
+  document.addEventListener('mouseleave', () => {
     mouse.x = null;
     mouse.y = null;
   });
@@ -603,7 +601,7 @@ function initCanvasGrid() {
     draw() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(214, 31, 38, 0.4)';
+      ctx.fillStyle = 'rgba(214, 31, 38, 0.7)';
       ctx.fill();
     }
   }
@@ -627,12 +625,12 @@ function initCanvasGrid() {
         const dist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
 
         if (dist < connectionDistance) {
-          const alpha = (1 - dist / connectionDistance) * 0.12;
+          const alpha = (1 - dist / connectionDistance) * 0.32;
           ctx.beginPath();
           ctx.moveTo(p1.x, p1.y);
           ctx.lineTo(p2.x, p2.y);
           ctx.strokeStyle = `rgba(214, 31, 38, ${alpha})`;
-          ctx.lineWidth = 1;
+          ctx.lineWidth = 1.2;
           ctx.stroke();
         }
       }
@@ -641,12 +639,12 @@ function initCanvasGrid() {
         const p = particles[i];
         const mDist = Math.hypot(p.x - mouse.x, p.y - mouse.y);
         if (mDist < mouse.radius) {
-          const alpha = (1 - mDist / mouse.radius) * 0.22;
+          const alpha = (1 - mDist / mouse.radius) * 0.45;
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(mouse.x, mouse.y);
           ctx.strokeStyle = `rgba(214, 31, 38, ${alpha})`;
-          ctx.lineWidth = 1;
+          ctx.lineWidth = 1.2;
           ctx.stroke();
         }
       }

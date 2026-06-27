@@ -111,7 +111,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Canvas Container */
 #particles-canvas {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -396,8 +396,8 @@ section {
   height: 100vh;
   min-height: 700px;
   display: flex;
-  align-items: center;
-  padding-top: 100px;
+  align-items: flex-start;
+  padding-top: 155px;
 }
 
 .hero-grid {
@@ -418,6 +418,7 @@ section {
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
+  margin-top: 4px;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
@@ -435,7 +436,8 @@ section {
 }
 
 .hero-title {
-  min-height: 2.2em;
+  min-height: 1.1em;
+  margin-bottom: 0;
 }
 
 .hero-title span {
