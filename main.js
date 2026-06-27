@@ -502,7 +502,8 @@ function initTimeAndTelemetry() {
 
   function updateClock() {
     const now = new Date();
-    const timeStr = now.toISOString().replace('T', ' ').substring(0, 19) + ' UTC';
+    const pkt = new Date(now.getTime() + 5 * 60 * 60 * 1000);
+    const timeStr = pkt.toISOString().replace('T', ' ').substring(0, 19) + ' PKT';
     if (timeSpan) timeSpan.textContent = timeStr;
   }
   setInterval(updateClock, 1000);
