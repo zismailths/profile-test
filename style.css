@@ -698,8 +698,10 @@ section {
 
 .skill-tag.icon-only svg,
 .skill-tag.icon-only img.tool-icon-img {
-  width: 100px;
-  height: 100px;
+  width: 80% !important;
+  height: 80% !important;
+  max-width: 100px;
+  max-height: 100px;
 }
 
 /* Projects Section */

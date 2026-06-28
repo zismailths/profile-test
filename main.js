@@ -363,7 +363,7 @@ const PERSONA_DATA = {
     metrics: [
       { num: "Docker/K8s", label: "Container Stack" },
       { num: "SAST/DAST", label: "Testing Methods" },
-      { num: "Silver", label: "FAST NUCES Medal" },
+      { num: "Fall '24", label: "FAST Silver Medalist" },
       { num: "CKA", label: "Kubernetes Prep" }
     ],
     biography: [
@@ -1370,9 +1370,9 @@ function getToolIcon(name) {
 
   let html = '';
   if (file) {
-    html = `<img src="assets/icons/${file}" alt="${name} logo" class="tool-icon-img" style="width: 100px; height: 100px; object-fit: contain; transition: all 0.3s ease;" />`;
+    html = `<img src="assets/icons/${file}" alt="${name} logo" class="tool-icon-img" style="object-fit: contain; transition: all 0.3s ease;" />`;
   } else {
-    html = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tool-icon-svg" style="width: 100px; height: 100px; color: var(--color-text-muted);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`;
+    html = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tool-icon-svg" style="color: var(--color-text-muted);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`;
   }
 
   let bgColor = '#181818'; // Default phase-1 background
@@ -1504,10 +1504,14 @@ function initCertCarousel() {
         slide.classList.add('active');
         slide.style.borderColor = 'var(--color-primary)';
         slide.style.boxShadow = '0 20px 45px rgba(0, 0, 0, 0.4)';
+        const img = slide.querySelector('img');
+        if (img) img.style.cursor = 'zoom-in';
       } else {
         slide.classList.remove('active');
         slide.style.borderColor = 'var(--color-border)';
         slide.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.5)';
+        const img = slide.querySelector('img');
+        if (img) img.style.cursor = 'pointer';
       }
     });
   }
@@ -1515,8 +1519,15 @@ function initCertCarousel() {
   // Go to slide on click
   slides.forEach((slide, index) => {
     slide.addEventListener('click', () => {
-      activeIndex = index;
-      updateCarousel();
+      if (activeIndex === index) {
+        const img = slide.querySelector('img');
+        if (img && img.src) {
+          openImageModal(img.src);
+        }
+      } else {
+        activeIndex = index;
+        updateCarousel();
+      }
     });
   });
 
