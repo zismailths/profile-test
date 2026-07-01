@@ -116,7 +116,7 @@ const PERSONA_DATA = {
       { title: "Google Cybersecurity Professional Certificate", issuer: "Google (Coursera)", icon: "🎓", link: "#" },
       { title: "Silver Medalist - FALL 2024", issuer: "BS Cyber Security - FAST-NUCES", icon: "🎓", link: "https://drive.google.com/file/d/1LwOmwCGuWSuJ3RcJWBsWhWMi7UZpGcHS/view?usp=drive_link" },
       { title: "2nd ICyDD Award Winner", issuer: "ICyDD Conference 2025", icon: "🏆", link: "https://www.juw.edu.pk/conference/ICyDD/2025/ICyDD_2025_Proceedings-57-60.pdf" },
-      { title: "Into the trenches: Security Operations Centre", issuer: "EC-Council (Coursera)", icon: "🖥️", link: "#" },
+      { title: "In the trenches: Security Operations Centre", issuer: "EC-Council (Coursera)", icon: "🖥️", link: "https://coursera.org/share/0c8726f186e46c5e16837af424097ea9" },
       { title: "Certified Kubernetes Administrator (CKA)", issuer: "Linux Foundation (Coursera Unit 1-6)", icon: "☸️", link: "#" },
       { title: "Certified Ethical Hacker (CEHv13)", issuer: "EC-Council", icon: "💻", link: "#", status: "coming_soon" }
     ]
@@ -233,7 +233,7 @@ const PERSONA_DATA = {
       { title: "2nd ICyDD Award Winner", issuer: "ICyDD Conference 2025", icon: "🏆", link: "https://www.juw.edu.pk/conference/ICyDD/2025/ICyDD_2025_Proceedings-57-60.pdf" },
       { title: "Silver Medalist - FALL 2024", issuer: "BS Cyber Security - FAST-NUCES", icon: "🎓", link: "https://drive.google.com/file/d/1LwOmwCGuWSuJ3RcJWBsWhWMi7UZpGcHS/view?usp=drive_link" },
       { title: "SSCP Exam Preparation Course", issuer: "ISC2 (Coursera)", icon: "🔒", link: "#" },
-      { title: "Into the trenches: Security Operations Centre", issuer: "EC-Council (Coursera)", icon: "🖥️", link: "#" },
+      { title: "In the trenches: Security Operations Centre", issuer: "EC-Council (Coursera)", icon: "🖥️", link: "https://coursera.org/share/0c8726f186e46c5e16837af424097ea9" },
       { title: "Certified Kubernetes Administrator (CKA)", issuer: "Linux Foundation (Coursera Unit 1-6)", icon: "☸️", link: "#" },
       { title: "Certified Ethical Hacker (CEHv13)", issuer: "EC-Council", icon: "💻", link: "#", status: "coming_soon" }
     ]
@@ -345,7 +345,7 @@ const PERSONA_DATA = {
       }
     ],
     certs: [
-      { title: "Into the trenches: Security Operations Centre", issuer: "EC-Council (Coursera)", icon: "🖥️", link: "#" },
+      { title: "In the trenches: Security Operations Centre", issuer: "EC-Council (Coursera)", icon: "🖥️", link: "https://coursera.org/share/0c8726f186e46c5e16837af424097ea9" },
       { title: "Certified in Cybersecurity (CC)", issuer: "ISC2", icon: "🛡️", link: "https://isc2.obrizum.io/org/cc/certificate/0d3be2be-5eef-4e72-bd9b-3b50e8fe8779" },
       { title: "Google Cybersecurity Professional Certificate", issuer: "Google (Coursera)", icon: "🎓", link: "#" },
       { title: "SSCP Exam Preparation Course", issuer: "ISC2 (Coursera)", icon: "🔒", link: "#" },
@@ -468,7 +468,7 @@ const PERSONA_DATA = {
       { title: "Google Cybersecurity Professional Certificate", issuer: "Google (Coursera)", icon: "🎓", link: "#" },
       { title: "Silver Medalist - FALL 2024", issuer: "BS Cyber Security - FAST-NUCES", icon: "🎓", link: "https://drive.google.com/file/d/1LwOmwCGuWSuJ3RcJWBsWhWMi7UZpGcHS/view?usp=drive_link" },
       { title: "2nd ICyDD Award Winner", issuer: "ICyDD Conference 2025", icon: "🏆", link: "https://www.juw.edu.pk/conference/ICyDD/2025/ICyDD_2025_Proceedings-57-60.pdf" },
-      { title: "Into the trenches: Security Operations Centre", issuer: "EC-Council (Coursera)", icon: "🖥️", link: "#" },
+      { title: "In the trenches: Security Operations Centre", issuer: "EC-Council (Coursera)", icon: "🖥️", link: "https://coursera.org/share/0c8726f186e46c5e16837af424097ea9" },
       { title: "Certified Ethical Hacker (CEHv13)", issuer: "EC-Council", icon: "💻", link: "#", status: "coming_soon" }
     ]
   }
@@ -1404,15 +1404,30 @@ function getProjectThumbnail(title) {
 /* ==========================================================================
    IMAGE LIGHTBOX MODAL TRIGGER
    ========================================================================== */
-function openImageModal(src) {
+function openImageModal(src, isCertificate = false) {
   const modal = document.createElement('div');
   modal.className = 'project-image-modal';
-  modal.innerHTML = `
+  
+  let modalHTML = `
     <div class="project-image-modal-content">
-      <img src="${src}" alt="Project Preview Image" />
-      <span class="project-image-modal-close">&times;</span>
+      <img src="${src}" alt="Preview Image" />
     </div>
+    <button class="project-image-modal-close" aria-label="Close Modal">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+    </button>
   `;
+  
+  if (isCertificate) {
+    modalHTML += `
+      <button class="modal-nav-btn prev-cert-btn" aria-label="Previous Certificate">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button class="modal-nav-btn next-cert-btn" aria-label="Next Certificate">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    `;
+  }
+  modal.innerHTML = modalHTML;
   document.body.appendChild(modal);
 
   // Close triggers
@@ -1420,9 +1435,43 @@ function openImageModal(src) {
     modal.remove();
   });
 
-  modal.querySelector('img').addEventListener('click', (e) => {
+  const contentElement = modal.querySelector('.project-image-modal-content');
+  if (contentElement) {
+    contentElement.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  }
+  const imgElement = modal.querySelector('img');
+
+  const closeBtn = modal.querySelector('.project-image-modal-close');
+  closeBtn.addEventListener('click', (e) => {
     e.stopPropagation();
+    modal.remove();
   });
+
+  if (isCertificate) {
+    const certImages = Array.from(document.querySelectorAll('#carousel-track img')).map(img => img.src);
+    let currentIndex = certImages.indexOf(src);
+    if (currentIndex === -1) {
+      currentIndex = certImages.findIndex(s => s.includes(src) || src.includes(s));
+    }
+    if (currentIndex === -1) currentIndex = 0;
+
+    const prevBtn = modal.querySelector('.prev-cert-btn');
+    const nextBtn = modal.querySelector('.next-cert-btn');
+
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex - 1 + certImages.length) % certImages.length;
+      imgElement.src = certImages[currentIndex];
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % certImages.length;
+      imgElement.src = certImages[currentIndex];
+    });
+  }
 }
 
 /* ==========================================================================
@@ -1522,7 +1571,7 @@ function initCertCarousel() {
       if (activeIndex === index) {
         const img = slide.querySelector('img');
         if (img && img.src) {
-          openImageModal(img.src);
+          openImageModal(img.src, true);
         }
       } else {
         activeIndex = index;

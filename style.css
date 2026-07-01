@@ -2050,9 +2050,23 @@ footer {
   }
 
   .project-image-modal-close {
-    font-size: 28px;
-    top: 10px;
-    right: 14px;
+    width: 30px;
+    height: 30px;
+    top: 20px;
+    right: 20px;
+  }
+
+  .modal-nav-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .prev-cert-btn {
+    left: 20px;
+  }
+
+  .next-cert-btn {
+    right: 20px;
   }
 }
 
@@ -2430,18 +2444,59 @@ footer {
 
 .project-image-modal-close {
   position: absolute;
-  top: 15px;
-  right: 20px;
+  top: 30px;
+  right: 40px;
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-primary);
   color: #fff;
-  font-size: 36px;
-  font-weight: 700;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: var(--transition);
-  line-height: 1;
+  z-index: 10002;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .project-image-modal-close:hover {
-  color: var(--color-primary);
+  background-color: var(--color-primary-hover);
+  transform: scale(1.08);
+}
+
+/* Certificate Modal Navigation Buttons */
+.modal-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-primary);
+  color: #fff;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 10001;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.modal-nav-btn:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.prev-cert-btn {
+  left: 40px;
+}
+
+.next-cert-btn {
+  right: 40px;
 }
 
 @keyframes fadeInModal {
