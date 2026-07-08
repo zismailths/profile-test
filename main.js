@@ -2,476 +2,198 @@
    MAIN PORTFOLIO INTERACTIVITY - REWTERZ CYBER PROFESSIONAL THEME
    ========================================================================== */
 
-// 1. DATA DICTIONARY FOR MULTI-PERSONA RESUMES
-const PERSONA_DATA = {
-  vapt: {
-    role: "VAPT Analyst",
-    statusText: "VAPT_PROTOCOL_ACTIVE",
-    summary: "Cybersecurity graduate specializing in penetration testing, vulnerability assessment, and offensive security. Experienced in web application testing, reconnaissance automation, and exploit development through hands-on labs, CTFs, and vulnerable machine environments.",
-    badges: ["Pen-Testing", "Offensive Security", "API & Web Security", "Threat Modeling"],
-    metrics: [
-      { num: "50+", label: "THM & VulnHub Labs" },
-      { num: "6+", label: "Cyber Security Projects" },
-      { num: "Fall '24", label: "FAST Silver Medalist" },
-      { num: "ISC2", label: "Certified Member" }
+// 1. DATA DICTIONARY FOR DEVELOPER STUDENT RESUME
+const DEVELOPER_DATA = {
+  role: "CS Undergraduate",
+  statusText: "DEV_ACTIVE",
+  summary: "A motivated Computer Science student at FAST NUCES specializing in software engineering, algorithms, and full-stack web development. High academic achiever with a passion for building clean, efficient, and well-coded applications.",
+  badges: ["React / Node.js", "Python / C++", "Database Systems", "Git & CI/CD"],
+  metrics: [
+    { num: "3.85/4.0", label: "CGPA (FAST-NUCES)" },
+    { num: "6/8", label: "Semesters Completed" },
+    { num: "12+", label: "Academic Projects" },
+    { num: "Dean's List", label: "All Semesters" }
+  ],
+  biography: [
+    "Hello! I am Huzaifa Shahbaz, a Computer Science student at FAST NUCES specializing in software engineering and web development. I focus on creating responsive, intuitive web applications and writing clean, structured code.",
+    "Throughout my university semesters, I have built a solid foundation in core computer science areas including Data Structures, Design & Analysis of Algorithms, Object-Oriented Programming (OOP), and Database Management Systems (DBMS). I enjoy solving logical problems and optimizing codebases for speed and readability."
+  ],
+  skills: {
+    web: [
+      { name: "React.js", iconPath: "assets/icons/web/react.png", desc: "Component-based declarative library for building interactive user interfaces with Virtual DOM state rendering." },
+      { name: "Node.js", iconPath: "assets/icons/web/node.png", desc: "Scalable asynchronous JavaScript backend runtime executing events on a single-threaded system loop." },
+      { name: "Next.js", iconPath: "assets/icons/web/next.png", desc: "Full-stack framework offering Server-Side Rendering (SSR), API routing, and optimized SEO structure." },
+      { name: "Tailwind CSS", iconPath: "assets/icons/web/tailwindcss.png", desc: "Utility-first CSS tool allowing developers to compose UI styles directly in DOM element class attributes." },
+      { name: "TypeScript", iconPath: "assets/icons/web/typescript.png", desc: "Statically typed programming language compiling to clean JavaScript for robust scale application testing." },
+      { name: "JavaScript", iconPath: "assets/icons/web/js.png", desc: "Core web systems language powering reactive frontend behaviors and full-stack backend integrations." },
+      { name: "HTML5", iconPath: "assets/icons/web/html.png", desc: "Fundamental markup language defining standard viewport layouts, semantic structure, and responsive grids." },
+      { name: "CSS3", iconPath: "assets/icons/web/css3.png", desc: "Cascading styles for animations, flexbox/grid layouts, custom properties, and responsive design systems." },
+      { name: "Bootstrap", iconPath: "assets/icons/web/bootstrap.png", desc: "Responsive layout grid framework providing modular styles and pre-coded UI container templates." },
+      { name: "VS Code", iconPath: "assets/icons/web/vscode.png", desc: "Lightweight extendable source code editor supporting custom plugins, debugging, and terminal integrations." },
+      { name: "Git VCS", iconPath: "assets/icons/web/git.png", desc: "Distributed version control managing multi-developer repository tracking, commits, and branching workflows." }
     ],
-    biography: [
-      "Greetings! I am Rana Ismail Ahmed, a Cyber Security graduate specializing in penetration testing, vulnerability assessment, and offensive security. My focus is on automating security testing workflows and discovering vulnerability flaws in web structures.",
-      "I actively practice offensive techniques on platforms like VulnHub, TryHackMe, and OverTheWire, mastering reconnaissance, enumeration, privilege escalation, and payload writing. I have configured secure networks and solved multiple cryptography and reverse engineering CTFs.",
-      "As a developer, I build security-oriented applications including automated web testers (NucloGem), reconnaissance toolkits (OctaRecon), and data anonymization tools. I strive for clean coding standards, secure credential management, and implementing cryptographic primitives securely."
+    software: [
+      { name: "Python", iconPath: "assets/icons/software/python.png", desc: "Multi-paradigm scripting language preferred for algorithmic modeling, automated pipelines, and backend routing." },
+      { name: "C / C++", iconPath: "assets/icons/software/c++.png", desc: "System-level compiler languages emphasizing pointers, memory allocation, and computational runtime speed." },
+      { name: "C# Language", iconPath: "assets/icons/software/csharp.png", desc: "Object-oriented Microsoft programming language for enterprise software and game development workflows." },
+      { name: "Java", iconPath: "assets/icons/software/java.png", desc: "Class-based secure language providing cross-platform virtual machine application execution." },
+      { name: "MySQL", iconPath: "assets/icons/software/mysql.png", desc: "Relational database querying engine managing data indexing, schemas, integrity, and foreign key relations." },
+      { name: "Git", iconPath: "assets/icons/software/git.png", desc: "Distributed version control system managing multi-developer repository tracking, commits, and branching workflows." },
+      { name: "GitHub", iconPath: "assets/icons/software/github.png", desc: "Cloud repository service managing remote branches, pull request reviews, and team issue tracking." },
+      { name: "Visual Studio", iconPath: "assets/icons/software/visualstudio.png", desc: "Comprehensive Microsoft integrated development environment for compiling heavy desktop applications." },
+      { name: "IntelliJ IDEA", iconPath: "assets/icons/software/ij.png", desc: "Premium Java IDE offering advanced code inspections, refactoring, and build tools." },
+      { name: "Postman", iconPath: "assets/icons/software/postman.png", desc: "API lifecycle dashboard verifying microservice schemas and testing network responses." },
+      { name: "Docker", iconPath: "assets/icons/software/docker.png", desc: "Container virtualization tool packaging software and environmental variables into standard image layers." }
     ],
-    skills: [
-      {
-        category: "Offensive Security & VAPT",
-        tags: ["Penetration Testing", "Web Application Testing", "Reconnaissance Automation", "Vulnerability Assessment", "API Testing", "Threat Modeling", "Exploit Development"]
-      },
-      {
-        category: "Pen-Testing Stacks & Tools",
-        tags: ["Kali Linux", "Burp Suite", "Metasploit", "Nuclei", "SQLMap", "OWASP ZAP", "Nessus", "Hydra", "Nmap", "GoBuster", "Hashcat", "Wireshark"]
-      },
-      {
-        category: "Programming & Foundations",
-        tags: ["Python", "C/C++", "SQL", "KQL", "MongoDB", "Bash Scripting", "REST APIs", "Git / GitHub", "Docker", "Kubernetes (K8s)"]
-      }
-    ],
-    projects: [
-      {
-        title: "NucloGem (Automated Web Tester)",
-        category: "cybersecurity",
-        tags: ["Python", "Gemini API", "Nuclei"],
-        desc: "An automatic web-testing tool integrating Nuclei with the Gemini API to scan webpages against thousands of Nuclei templates. Automates executive security report generation using Gemini and Python.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "OctaRecon (Reconnaissance Toolkit)",
-        category: "cybersecurity",
-        tags: ["Python", "Bash", "OSINT"],
-        desc: "An automated web-reconnaissance script tool integrating 8 different tools to perform active and passive reconnaissance, indexing server headers, open ports, and DNS records.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "AI/ML-Based Self-healing SIEM (FYP - 2026)",
-        category: "cybersecurity",
-        tags: ["Wazuh", "AI/ML", "SIEM", "Anomaly Detection"],
-        desc: "Improved log parsing and classification efficiency by up to 50% across 12+ endpoints. Achieved a 60% reduction in log noise through optimized filtering, log aggregation, and automated forensic packaging.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "Ecommerce Ecosystem",
-        category: "webdev",
-        tags: ["NextJs", "NestJS", "Docker", "DevSecOps"],
-        desc: "Full-stack e-commerce ecosystem with Seller, Admin, and Customer portals. Integrates DevSecOps practices: secure authentication, RBAC, secure SDLC validation, and automated SAST/DAST scanning.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "Data Anonymizer",
-        category: "systems",
-        tags: ["Python", "Privacy", "GDPR"],
-        desc: "Takes data in CSV format and applies modern privacy-enhancing techniques like generalization and suppression to ensure compliance with standards like GDPR.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "AI-Based GRC Toolkit",
-        category: "systems",
-        tags: ["RAG", "Embeddings", "LLMs", "Compliance"],
-        desc: "AI-driven governance, risk, and compliance system using RAG and vector embeddings. Automates risk assessment, Gap analysis, and compliance recommendations across ISO27001, NIST CSF 2.0, GDPR.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      }
-    ],
-    timeline: [
-      {
-        date: "Aug 2022 - Jun 2026",
-        role: "BS Cyber Security (Silver Medalist)",
-        org: "National University of Computer and Emerging Sciences (FAST NUCES)",
-        desc: "Completed specialized study paths on computer architecture, networks, and cryptography. Awarded Silver Medal in Cyber Security Department (Fall 2024)."
-      },
-      {
-        date: "2023 - Present",
-        role: "Offensive Security Practice",
-        org: "TryHackMe, VulnHub, OverTheWire",
-        desc: "Completed hands-on penetration testing labs. Practicing reconnaissance, enumeration, privilege escalation, and web exploitation. Solved cryptography and reverse engineering CTFs."
-      },
-      {
-        date: "Mar 2024 - Apr 2025",
-        role: "Internal Systems Audit Intern",
-        org: "TCF Head Office",
-        desc: "Reviewed yearly IT audit reports and identified compliance gaps in security controls and SOPs. Evaluated cybersecurity policies to assess organizational risk posture."
-      },
-      {
-        date: "Aug 2018 - Jun 2020",
-        role: "Network & IT Support Assistant",
-        org: "The Hub School",
-        desc: "Provided technical support for 50+ systems, performed network troubleshooting, hardware and software configuration."
-      }
-    ],
-    certs: [
-      { title: "Certified in Cybersecurity (CC)", issuer: "ISC2", icon: "🛡️", link: "https://isc2.obrizum.io/org/cc/certificate/0d3be2be-5eef-4e72-bd9b-3b50e8fe8779" },
-      { title: "SSCP Exam Preparation Course", issuer: "ISC2 (Coursera)", icon: "🔒", link: "#" },
-      { title: "Google Cybersecurity Professional Certificate", issuer: "Google (Coursera)", icon: "🎓", link: "#" },
-      { title: "Silver Medalist - FALL 2024", issuer: "BS Cyber Security - FAST-NUCES", icon: "🎓", link: "https://drive.google.com/file/d/1LwOmwCGuWSuJ3RcJWBsWhWMi7UZpGcHS/view?usp=drive_link" },
-      { title: "2nd ICyDD Award Winner", issuer: "ICyDD Conference 2025", icon: "🏆", link: "https://www.juw.edu.pk/conference/ICyDD/2025/ICyDD_2025_Proceedings-57-60.pdf" },
-      { title: "In the trenches: Security Operations Centre", issuer: "EC-Council (Coursera)", icon: "🖥️", link: "https://coursera.org/share/0c8726f186e46c5e16837af424097ea9" },
-      { title: "Certified Kubernetes Administrator (CKA)", issuer: "Linux Foundation (Coursera Unit 1-6)", icon: "☸️", link: "#" },
-      { title: "Certified Ethical Hacker (CEHv13)", issuer: "EC-Council", icon: "💻", link: "#", status: "coming_soon" }
+    cloud: [
+      { name: "AWS", iconPath: "assets/icons/cloud/aws.png", desc: "Amazon Web Services cloud platform managing serverless compute, storage containers, and security policies." },
+      { name: "MS Azure", iconPath: "assets/icons/cloud/azure.png", desc: "Microsoft public cloud network providing virtual machine instances, active directory, and container services." },
+      { name: "Google Cloud", iconPath: "assets/icons/cloud/gcloud.png", desc: "Google Cloud computing services managing analytical databases, container scaling, and APIs." },
+      { name: "Docker", iconPath: "assets/icons/cloud/docker.png", desc: "Container virtualization tool packaging software and environmental variables into standard image layers." },
+      { name: "Kubernetes", iconPath: "assets/icons/cloud/k8s.png", desc: "Container orchestrator automating cluster deployment, replication management, and system scaling." },
+      { name: "Linux", iconPath: "assets/icons/cloud/linux.png", desc: "Open-source OS kernel powering web server environments and shell script automated pipelines." },
+      { name: "Terraform", iconPath: "assets/icons/cloud/terraform.png", desc: "Infrastructure as Code tool to provision cloud resources using declarative configuration files." },
+      { name: "Jenkins CI", iconPath: "assets/icons/cloud/jenkins.png", desc: "Continuous integration automation server orchestrating build triggers and test suite deployments." },
+      { name: "Ansible", iconPath: "assets/icons/cloud/ansible.png", desc: "Automation configuration management tool for remote server setup and modular script execution." },
+      { name: "Grafana", iconPath: "assets/icons/cloud/grafana.png", desc: "Open-source observability platform for visualizing metrics, logs, and distributed traces in dashboards." },
+      { name: "Prometheus", iconPath: "assets/icons/cloud/prometheus.png", desc: "Time-series monitoring system scraping and storing metrics from containerized and cloud services." },
+      { name: "Postman", iconPath: "assets/icons/cloud/postman.png", desc: "API testing client supporting environment parameters, automated mock responses, and header assertions." }
     ]
   },
-  grc: {
-    role: "GRC Analyst",
-    statusText: "GRC_PROTOCOL_ACTIVE",
-    summary: "Cybersecurity graduate specializing in Governance, Risk, and Compliance (GRC), IT auditing, and security policy evaluation. Experienced in risk assessment, compliance analysis, audit documentation review, and governance framework evaluation. Strong understanding of enterprise security controls and regulatory alignment.",
-    badges: ["Governance", "Risk Assessment", "IT Auditing", "ISO 27001 / NIST"],
-    metrics: [
-      { num: "ISO 27001", label: "Framework Focus" },
-      { num: "~1 Year", label: "Audit Intern Exp" },
-      { num: "Fall '24", label: "FAST Silver Medalist" },
-      { num: "ISC2", label: "Certified Member" }
-    ],
-    biography: [
-      "Greetings! I am Rana Ismail Ahmed, a Cyber Security graduate specializing in Governance, Risk, and Compliance (GRC), IT auditing, and security policy evaluation. I focus on helping organizations understand their risk posture and align with standard regulatory frameworks.",
-      "During my internship at TCF Head Office, I reviewed yearly IT audit reports, assessed cybersecurity policies, and formulated recommendations to bridge compliance gaps in security controls and SOPs.",
-      "I leverage technology to automate GRC compliance. I designed a RAG-based AI GRC toolkit to automate ISO27001, NIST CSF 2.0, PCI-DSS, GDPR, and SOC 2 audits, translating complex standards into actionable checklists."
-    ],
-    skills: [
-      {
-        category: "Governance & Risk Management",
-        tags: ["Risk Assessment", "IT Auditing", "Compliance Analysis", "Governance Frameworks", "Policy Evaluation", "Control Assessment", "Gap Analysis"]
-      },
-      {
-        category: "Standards & Systems Knowledge",
-        tags: ["ISO 27001 Awareness", "NIST CSF 2.0 Concepts", "GDPR", "SOC 2", "Risk Management Lifecycle", "Excel-based Audit Tracking"]
-      },
-      {
-        category: "Tools & Scripting",
-        tags: ["Splunk (Basic)", "Wazuh (Basic)", "SQL", "KQL", "Git / GitHub", "Python Automation"]
-      }
-    ],
-    projects: [
-      {
-        title: "AI-Based GRC Toolkit",
-        category: "systems",
-        tags: ["RAG", "Embeddings", "LLMs", "Compliance"],
-        desc: "AI-driven governance, risk, and compliance system using RAG and vector embeddings. Automates risk assessment, Gap analysis, and compliance recommendations across ISO27001, NIST CSF 2.0, GDPR.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "Data Anonymizer",
-        category: "systems",
-        tags: ["Python", "Privacy", "GDPR"],
-        desc: "Takes data in CSV format and applies modern privacy-enhancing techniques like generalization and suppression to ensure compliance with standards like GDPR.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "AI/ML-Based Self-healing SIEM (FYP - 2026)",
-        category: "cybersecurity",
-        tags: ["Wazuh", "AI/ML", "SIEM", "Anomaly Detection"],
-        desc: "Improved log parsing and classification efficiency by up to 50% across 12+ endpoints. Achieved a 60% reduction in log noise through optimized filtering, log aggregation, and automated forensic packaging.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "Ecommerce Ecosystem",
-        category: "webdev",
-        tags: ["NextJs", "NestJS", "Docker", "DevSecOps"],
-        desc: "Full-stack e-commerce ecosystem with Seller, Admin, and Customer portals. Integrates DevSecOps practices: secure authentication, RBAC, secure SDLC validation, and automated SAST/DAST scanning.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "NucloGem (Automated Web Tester)",
-        category: "cybersecurity",
-        tags: ["Python", "Gemini API", "Nuclei"],
-        desc: "An automatic web-testing tool integrating Nuclei with the Gemini API to scan webpages against thousands of Nuclei templates. Automates executive security report generation using Gemini and Python.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "OctaRecon (Reconnaissance Toolkit)",
-        category: "cybersecurity",
-        tags: ["Python", "Bash", "OSINT"],
-        desc: "An automated web-reconnaissance script tool integrating 8 different tools to perform active and passive reconnaissance, indexing server headers, open ports, and DNS records.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      }
-    ],
-    timeline: [
-      {
-        date: "Aug 2022 - Jun 2026",
-        role: "BS Cyber Security (Silver Medalist)",
-        org: "National University of Computer and Emerging Sciences (FAST NUCES)",
-        desc: "Completed specialized study paths on computer architecture, networks, and cryptography. Awarded Silver Medal in Cyber Security Department (Fall 2024)."
-      },
-      {
-        date: "Mar 2024 - Apr 2025",
-        role: "Internal Systems Audit Intern",
-        org: "TCF Head Office",
-        desc: "Reviewed yearly IT audit reports, identified compliance gaps in security controls and SOPs, and evaluated cybersecurity policies to assess risk posture."
-      },
-      {
-        date: "2023 - Present",
-        role: "Offensive Security Practice",
-        org: "Self-paced GRC/VAPT Labs",
-        desc: "Practiced vulnerability assessments, mapped technical controls, and studied incident response lifecycles."
-      },
-      {
-        date: "Aug 2018 - Jun 2020",
-        role: "Network & IT Support Assistant",
-        org: "The Hub School",
-        desc: "Maintained assets inventory, troubleshot connection controls, and configured user endpoints."
-      }
-    ],
-    certs: [
-      { title: "Certified in Cybersecurity (CC)", issuer: "ISC2", icon: "🛡️", link: "https://isc2.obrizum.io/org/cc/certificate/0d3be2be-5eef-4e72-bd9b-3b50e8fe8779" },
-      { title: "Google Cybersecurity Professional Certificate", issuer: "Google (Coursera)", icon: "🎓", link: "#" },
-      { title: "2nd ICyDD Award Winner", issuer: "ICyDD Conference 2025", icon: "🏆", link: "https://www.juw.edu.pk/conference/ICyDD/2025/ICyDD_2025_Proceedings-57-60.pdf" },
-      { title: "Silver Medalist - FALL 2024", issuer: "BS Cyber Security - FAST-NUCES", icon: "🎓", link: "https://drive.google.com/file/d/1LwOmwCGuWSuJ3RcJWBsWhWMi7UZpGcHS/view?usp=drive_link" },
-      { title: "SSCP Exam Preparation Course", issuer: "ISC2 (Coursera)", icon: "🔒", link: "#" },
-      { title: "In the trenches: Security Operations Centre", issuer: "EC-Council (Coursera)", icon: "🖥️", link: "https://coursera.org/share/0c8726f186e46c5e16837af424097ea9" },
-      { title: "Certified Kubernetes Administrator (CKA)", issuer: "Linux Foundation (Coursera Unit 1-6)", icon: "☸️", link: "#" },
-      { title: "Certified Ethical Hacker (CEHv13)", issuer: "EC-Council", icon: "💻", link: "#", status: "coming_soon" }
-    ]
-  },
-  soc: {
-    role: "SOC Analyst",
-    statusText: "SOC_PROTOCOL_ACTIVE",
-    summary: "Cybersecurity graduate focused on SOC operations, SIEM monitoring, and incident response. Experienced in log analysis, threat detection, alert triaging, and security event correlation. Strong ability to identify anomalies and support real-time security operations.",
-    badges: ["SOC Operations", "SIEM Monitoring", "Incident Response", "Threat Detection"],
-    metrics: [
-      { num: "AI / ML", label: "SIEM integration" },
-      { num: "Log Reduction", label: "Hot & Cold Storage" },
-      { num: "Fall '24", label: "FAST Silver Medalist" },
-      { num: "ISC2", label: "Certified Member" }
-    ],
-    biography: [
-      "Greetings! I am Rana Ismail Ahmed, a Cyber Security graduate focused on SOC operations, SIEM monitoring, and incident response. I specialize in identifying anomalous network activity and designing automated log analysis tools.",
-      "I have completed extensive hands-on SIEM monitoring and threat detection labs, mapping out attack vectors and configuring alert rules in Wazuh and Splunk. I practice incident response tactics through CTF exercises.",
-      "My Final Year Project is an AI-Integrated SIEM Extension, which improves log classification efficiency by up to 50% across 12+ endpoints and reduces noise by 60% through optimized filtering algorithms."
-    ],
-    skills: [
-      {
-        category: "SOC Operations & Forensics",
-        tags: ["Threat Detection", "SIEM Monitoring", "Log Analysis", "Alert Triaging", "Event Correlation", "Digital Forensics", "Network Forensics"]
-      },
-      {
-        category: "SOC Tool Stack",
-        tags: ["Wazuh", "Splunk", "Graylog", "Wireshark", "Ghidra", "IDA", "FTK Imager", "Kali Linux"]
-      },
-      {
-        category: "Programming & Data",
-        tags: ["Python", "KQL (Kusto)", "SQL", "Bash Scripting", "REST APIs", "Cisco Packet Tracer", "Docker"]
-      }
-    ],
-    projects: [
-      {
-        title: "AI/ML-Based Self-healing SIEM (FYP - 2026)",
-        category: "cybersecurity",
-        tags: ["Wazuh", "AI/ML", "SIEM", "Anomaly Detection"],
-        desc: "Improved log parsing and classification efficiency by up to 50% across 12+ endpoints. Achieved a 60% reduction in log noise through optimized filtering, log aggregation, and automated forensic packaging.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "OctaRecon (Reconnaissance Toolkit)",
-        category: "cybersecurity",
-        tags: ["Python", "Bash", "OSINT"],
-        desc: "An automated web-reconnaissance script tool integrating 8 different tools to perform active and passive reconnaissance, indexing server headers, open ports, and DNS records.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "NucloGem (Automated Web Tester)",
-        category: "cybersecurity",
-        tags: ["Python", "Gemini API", "Nuclei"],
-        desc: "An automatic web-testing tool integrating Nuclei with the Gemini API to scan webpages against thousands of Nuclei templates. Automates executive security report generation using Gemini and Python.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "Data Anonymizer",
-        category: "systems",
-        tags: ["Python", "Privacy", "GDPR"],
-        desc: "Takes data in CSV format and applies modern privacy-enhancing techniques like generalization and suppression to ensure compliance with standards like GDPR.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "AI-Based GRC Toolkit",
-        category: "systems",
-        tags: ["RAG", "Embeddings", "LLMs", "Compliance"],
-        desc: "AI-driven governance, risk, and compliance system using RAG and vector embeddings. Automates risk assessment, Gap analysis, and compliance recommendations across ISO27001, NIST CSF 2.0, GDPR.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "Ecommerce Ecosystem",
-        category: "webdev",
-        tags: ["NextJs", "NestJS", "Docker", "DevSecOps"],
-        desc: "Full-stack e-commerce ecosystem with Seller, Admin, and Customer portals. Integrates DevSecOps practices: secure authentication, RBAC, secure SDLC validation, and automated SAST/DAST scanning.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      }
-    ],
-    timeline: [
-      {
-        date: "Aug 2022 - Jun 2026",
-        role: "BS Cyber Security (Silver Medalist)",
-        org: "National University of Computer and Emerging Sciences (FAST NUCES)",
-        desc: "Completed specialized study paths on computer architecture, networks, and cryptography. Awarded Silver Medal in Cyber Security Department (Fall 2024)."
-      },
-      {
-        date: "2023 - Present",
-        role: "SOC-Oriented Security Practice",
-        org: "TryHackMe SOC Paths, CTFs",
-        desc: "Performed digital forensics, log analysis, and incident simulation labs. Investigated attack scenarios and mapped detection techniques."
-      },
-      {
-        date: "Mar 2024 - Apr 2025",
-        role: "Internal Systems Audit Intern",
-        org: "TCF Head Office",
-        desc: "Reviewed yearly IT audit reports, verified security controls, and audited organizational compliance with local security SOPs."
-      },
-      {
-        date: "Aug 2018 - Jun 2020",
-        role: "Network & IT Support Assistant",
-        org: "The Hub School",
-        desc: "Managed system reliability across 50+ workstations, configured network hardware, and handled technical logs."
-      }
-    ],
-    certs: [
-      { title: "In the trenches: Security Operations Centre", issuer: "EC-Council (Coursera)", icon: "🖥️", link: "https://coursera.org/share/0c8726f186e46c5e16837af424097ea9" },
-      { title: "Certified in Cybersecurity (CC)", issuer: "ISC2", icon: "🛡️", link: "https://isc2.obrizum.io/org/cc/certificate/0d3be2be-5eef-4e72-bd9b-3b50e8fe8779" },
-      { title: "Google Cybersecurity Professional Certificate", issuer: "Google (Coursera)", icon: "🎓", link: "#" },
-      { title: "SSCP Exam Preparation Course", issuer: "ISC2 (Coursera)", icon: "🔒", link: "#" },
-      { title: "Silver Medalist - FALL 2024", issuer: "BS Cyber Security - FAST-NUCES", icon: "🎓", link: "https://drive.google.com/file/d/1LwOmwCGuWSuJ3RcJWBsWhWMi7UZpGcHS/view?usp=drive_link" },
-      { title: "2nd ICyDD Award Winner", issuer: "ICyDD Conference 2025", icon: "🏆", link: "https://www.juw.edu.pk/conference/ICyDD/2025/ICyDD_2025_Proceedings-57-60.pdf" },
-      { title: "Certified Kubernetes Administrator (CKA)", issuer: "Linux Foundation (Coursera Unit 1-6)", icon: "☸️", link: "#" },
-      { title: "Certified Ethical Hacker (CEHv13)", issuer: "EC-Council", icon: "💻", link: "#", status: "coming_soon" }
-    ]
-  },
-  devsecops: {
-    role: "DevSecOps",
-    statusText: "DEVSECOPS_PROTOCOL_ACTIVE",
-    summary: "Cybersecurity graduate with hands-on experience in secure SDLC, CI/CD security, vulnerability management, and cloud security fundamentals. Skilled in Linux, Git, Docker, security automation, and application security testing (SAST/DAST).",
-    badges: ["DevSecOps", "Secure SDLC", "Kubernetes", "CI/CD Security"],
-    metrics: [
-      { num: "Docker/K8s", label: "Container Stack" },
-      { num: "SAST/DAST", label: "Testing Methods" },
-      { num: "Fall '24", label: "FAST Silver Medalist" },
-      { num: "CKA", label: "Kubernetes Prep" }
-    ],
-    biography: [
-      "Greetings! I am Rana Ismail Ahmed, a Cyber Security graduate with hands-on experience in secure SDLC, CI/CD security, vulnerability management, and cloud security fundamentals.",
-      "I excel at integrating security checkpoints (SAST/DAST/API testing) into release pipelines. I configure container environments in Docker and Kubernetes, and utilize tools like SonarQube, OWASP ZAP, and Postman to ensure codebases are secure prior to deployment.",
-      "I have engineered complex secure software solutions, including a full-stack e-commerce ecosystem incorporating secure authentication, role-based access control, and automated application security scans."
-    ],
-    skills: [
-      {
-        category: "DevSecOps & SecOps Stacks",
-        tags: ["CI/CD Security", "Kubernetes Administration", "Secure SDLC (SSDLC)", "Threat Modeling", "Vulnerability Management", "SAST", "DAST", "API Security"]
-      },
-      {
-        category: "Software Engineering & Testing",
-        tags: ["Secure Software Design", "Automated Testing", "Load & Performance Testing", "AI/ML Integration", "OOP Principles", "Kubernetes (K8s)", "Git / GitHub", "Docker"]
-      },
-      {
-        category: "Security & Testing Tools",
-        tags: ["SonarQube", "OWASP ZAP", "Burp Suite", "IriusRisk", "Threat Dragon", "Postman", "Selenium IDE", "Apache JMeter", "Jenkins", "Linux Systems"]
-      }
-    ],
-    projects: [
-      {
-        title: "Ecommerce Ecosystem",
-        category: "webdev",
-        tags: ["NextJs", "NestJS", "Docker", "DevSecOps"],
-        desc: "Full-stack e-commerce ecosystem with Seller, Admin, and Customer portals. Integrates DevSecOps practices: secure authentication, RBAC, secure SDLC validation, and automated SAST/DAST scanning.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "AI/ML-Based Self-healing SIEM (FYP - 2026)",
-        category: "cybersecurity",
-        tags: ["Wazuh", "AI/ML", "SIEM", "Anomaly Detection"],
-        desc: "Improved log parsing and classification efficiency by up to 50% across 12+ endpoints. Achieved a 60% reduction in log noise through optimized filtering, log aggregation, and automated forensic packaging.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "NucloGem (Automated Web Tester)",
-        category: "cybersecurity",
-        tags: ["Python", "Gemini API", "Nuclei"],
-        desc: "An automatic web-testing tool integrating Nuclei with the Gemini API to scan webpages against thousands of Nuclei templates. Automates executive security report generation using Gemini and Python.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "AI-Based GRC Toolkit",
-        category: "systems",
-        tags: ["RAG", "Embeddings", "LLMs", "Compliance"],
-        desc: "AI-driven governance, risk, and compliance system using RAG and vector embeddings. Automates risk assessment, Gap analysis, and compliance recommendations across ISO27001, NIST CSF 2.0, GDPR.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "Data Anonymizer",
-        category: "systems",
-        tags: ["Python", "Privacy", "GDPR"],
-        desc: "Takes data in CSV format and applies modern privacy-enhancing techniques like generalization and suppression to ensure compliance with standards like GDPR.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      },
-      {
-        title: "OctaRecon (Reconnaissance Toolkit)",
-        category: "cybersecurity",
-        tags: ["Python", "Bash", "OSINT"],
-        desc: "An automated web-reconnaissance script tool integrating 8 different tools to perform active and passive reconnaissance, indexing server headers, open ports, and DNS records.",
-        github: "https://github.com/zismailths",
-        demo: "#"
-      }
-    ],
-    timeline: [
-      {
-        date: "Aug 2022 - Jun 2026",
-        role: "BS Cyber Security (Silver Medalist)",
-        org: "National University of Computer and Emerging Sciences (FAST NUCES)",
-        desc: "Completed specialized study paths on computer architecture, networks, and cryptography. Awarded Silver Medal in Cyber Security Department (Fall 2024)."
-      },
-      {
-        date: "Nov 2025 - Jun 2026",
-        role: "Self-healing SIEM & AI Projects (FYP)",
-        org: "Academic FYP Lab",
-        desc: "Integrated ML algorithms to map attack paths and automate response workflows. Created secure e-commerce systems."
-      },
-      {
-        date: "Mar 2024 - Apr 2025",
-        role: "Internal IT Audit Intern",
-        org: "TCF Head Office",
-        desc: "Audited organizational infrastructures, validated security controls, and proposed cloud-hardening procedures."
-      },
-      {
-        date: "Aug 2018 - Jun 2020",
-        role: "Network & IT Support Assistant",
-        org: "The Hub School",
-        desc: "Set up network hardware and provided technical support and troubleshooting to teaching staff."
-      }
-    ],
-    certs: [
-      { title: "Certified Kubernetes Administrator (CKA)", issuer: "Linux Foundation (Coursera Unit 1-6)", icon: "☸️", link: "#" },
-      { title: "SSCP Exam Preparation Course", issuer: "ISC2 (Coursera)", icon: "🔒", link: "#" },
-      { title: "Certified in Cybersecurity (CC)", issuer: "ISC2", icon: "🛡️", link: "https://isc2.obrizum.io/org/cc/certificate/0d3be2be-5eef-4e72-bd9b-3b50e8fe8779" },
-      { title: "Google Cybersecurity Professional Certificate", issuer: "Google (Coursera)", icon: "🎓", link: "#" },
-      { title: "Silver Medalist - FALL 2024", issuer: "BS Cyber Security - FAST-NUCES", icon: "🎓", link: "https://drive.google.com/file/d/1LwOmwCGuWSuJ3RcJWBsWhWMi7UZpGcHS/view?usp=drive_link" },
-      { title: "2nd ICyDD Award Winner", issuer: "ICyDD Conference 2025", icon: "🏆", link: "https://www.juw.edu.pk/conference/ICyDD/2025/ICyDD_2025_Proceedings-57-60.pdf" },
-      { title: "In the trenches: Security Operations Centre", issuer: "EC-Council (Coursera)", icon: "🖥️", link: "https://coursera.org/share/0c8726f186e46c5e16837af424097ea9" },
-      { title: "Certified Ethical Hacker (CEHv13)", issuer: "EC-Council", icon: "💻", link: "#", status: "coming_soon" }
-    ]
-  }
+  projects: [
+    {
+      title: "AlgoViz (Algorithm Visualizer)",
+      category: "webdev",
+      tags: ["React.js", "CSS Grid", "Algorithms"],
+      desc: "An interactive web app that visualizes sorting algorithms (Merge, Quick, Bubble) and pathfinding algorithms (Dijkstra, A*) in real-time, helping students grasp algorithmic complexities visually.",
+      github: "https://github.com/huzaifashahbaz",
+      demo: "#"
+    },
+    {
+      title: "DevFlow (Q&A Platform)",
+      category: "webdev",
+      tags: ["Next.js", "NestJS", "PostgreSQL", "Markdown"],
+      desc: "A developer forum featuring markdown post writing, tag categorization, community voting systems, user profile reputations, and an advanced search functionality.",
+      github: "https://github.com/huzaifashahbaz",
+      demo: "#"
+    },
+    {
+      title: "CampusCart (Student Marketplace)",
+      category: "systems",
+      tags: ["Node.js", "Express", "PostgreSQL", "CSS"],
+      desc: "A local e-commerce platform for university student peer-to-peer trading. Students can buy or sell academic textbooks, lab equipment, and handwritten lecture notes securely.",
+      github: "https://github.com/huzaifashahbaz",
+      demo: "#"
+    },
+    {
+      title: "GradeTracker (Academic GPA Dashboard)",
+      category: "systems",
+      tags: ["Python", "SQLite", "Matplotlib"],
+      desc: "A desktop dashboard application to track course marks, predict end-of-semester GPAs based on historical study logs, and visualize progress trends through graphs.",
+      github: "https://github.com/huzaifashahbaz",
+      demo: "#"
+    },
+    {
+      title: "TaskFlow (Collaborative Kanban Board)",
+      category: "webdev",
+      tags: ["React.js", "WebSockets", "MongoDB", "Node.js"],
+      desc: "A real-time workspace for university group projects allowing teammates to assign tasks, drag cards across columns, and chat in real-time with WebSockets integration.",
+      github: "https://github.com/huzaifashahbaz",
+      demo: "#"
+    }
+  ],
+  timeline: [
+    {
+      hash: "c8f9a1b",
+      branch: "main",
+      msg: "feat: compile advanced courses & launch final year project",
+      date: "Fall 2025 - Present (Senior Year)",
+      org: "FAST NUCES, Karachi",
+      desc: "Studying Artificial Intelligence, Distributed Systems, and Software Project Management. Developing a Smart Campus Dashboard as a Final Year Project to optimize class schedules."
+    },
+    {
+      hash: "a4d7c2e",
+      branch: "feature/full-stack",
+      msg: "feat: merge web engineering and database systems modules",
+      date: "Fall 2024 - Spring 2025 (Junior Year)",
+      org: "FAST NUCES, Karachi",
+      desc: "Explored Design & Analysis of Algorithms, Database Systems, and Web Engineering. Achieved consecutive placements on the Dean's List for academic excellence."
+    },
+    {
+      hash: "b5e9f3a",
+      branch: "feature/algorithms",
+      msg: "feat: deploy custom CLI database engine & data structures core",
+      date: "Fall 2023 - Spring 2024 (Sophomore Year)",
+      org: "FAST NUCES, Karachi",
+      desc: "Studied Data Structures, Digital Logic Design, and Computer Architecture. Engineered a custom CLI database query engine in C++ and joined the computer society."
+    },
+    {
+      hash: "8a2c1d0",
+      branch: "main",
+      msg: "initial commit: programming fundamentals & math core",
+      date: "Fall 2022 - Spring 2023 (Freshman Year)",
+      org: "FAST NUCES, Karachi",
+      desc: "Laid groundwork in Programming Fundamentals (C++), Calculus, and English Composition. Coded simple utility command-line scripts and games."
+    }
+  ],
+  certs: [
+    {
+      title: "AWS Cloud",
+      desc: "AWS Academy Graduate with Cloud Practitioner skills.",
+      gradStart: "#FF1744",
+      gradEnd: "#FF8A80",
+      glowColor: "rgba(255, 23, 68, 0.25)",
+      svgIcon: '<path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>'
+    },
+    {
+      title: "Dean's List",
+      desc: "Consecutive placements on the Academic Honor List.",
+      gradStart: "#FF8A80",
+      gradEnd: "#D500F9",
+      glowColor: "rgba(213, 0, 249, 0.25)",
+      svgIcon: '<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>'
+    },
+    {
+      title: "Full Stack",
+      desc: "Certified in Node.js, Express, React, and databases.",
+      gradStart: "#D500F9",
+      gradEnd: "#3D5AFE",
+      glowColor: "rgba(61, 90, 254, 0.25)",
+      svgIcon: '<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line>'
+    },
+    {
+      title: "HackerRank Gold",
+      desc: "Gold Badge holder in Python and Algorithms core.",
+      gradStart: "#3D5AFE",
+      gradEnd: "#2979FF",
+      glowColor: "rgba(41, 121, 255, 0.25)",
+      svgIcon: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>'
+    },
+    {
+      title: "ACM Coders",
+      desc: "Speed Programming competition winner at FAST.",
+      gradStart: "#2979FF",
+      gradEnd: "#00E5FF",
+      glowColor: "rgba(0, 229, 255, 0.25)",
+      svgIcon: '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>'
+    },
+    {
+      title: "Open Source",
+      desc: "Contributed core PRs to public repos and CLI utilities.",
+      gradStart: "#00E5FF",
+      gradEnd: "#1DE9B6",
+      glowColor: "rgba(29, 233, 182, 0.25)",
+      svgIcon: '<line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path>'
+    },
+    {
+      title: "Cyber Security",
+      desc: "Active head of cybersecurity society projects.",
+      gradStart: "#1DE9B6",
+      gradEnd: "#00E676",
+      glowColor: "rgba(0, 230, 118, 0.25)",
+      svgIcon: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>'
+    }
+  ]
 };
 
 // 2. DOM EVENT CONTROLLER
@@ -479,17 +201,22 @@ document.addEventListener('DOMContentLoaded', () => {
   initTimeAndTelemetry();
   initMobileMenu();
   initCanvasGrid();
-  initScrollObserver();
   initContactForm();
 
-  // Setup Switchable Profile Buttons
-  initPersonaSelector();
+  // Load Developer Profile data
+  loadDeveloperProfile();
 
   // Initialize Terminal Shell
   initTerminal();
 
   // Initialize 3D Certificate Carousel
   initCertCarousel();
+
+  // Initialize Theme Toggle
+  initThemeToggle();
+
+  // Initialize Scroll Observer after all dynamic content is populated
+  initScrollObserver();
 });
 
 /* ==========================================================================
@@ -497,26 +224,26 @@ document.addEventListener('DOMContentLoaded', () => {
    ========================================================================== */
 function initTimeAndTelemetry() {
   const timeSpan = document.getElementById('current-time');
-  const tickerTextElement = document.querySelector('.ticker-text');
-  let blockedCount = 142;
 
   function updateClock() {
     const now = new Date();
-    const pkt = new Date(now.getTime() + 5 * 60 * 60 * 1000);
-    const timeStr = pkt.toISOString().replace('T', ' ').substring(0, 19) + ' PKT';
+    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+    const pktDate = new Date(utc + (3600000 * 5));
+
+    let hours = pktDate.getHours();
+    const minutes = String(pktDate.getMinutes()).padStart(2, '0');
+    const seconds = String(pktDate.getSeconds()).padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    const hoursStr = String(hours).padStart(2, '0');
+
+    const timeStr = `${hoursStr}:${minutes}:${seconds} ${ampm} PKT`;
     if (timeSpan) timeSpan.textContent = timeStr;
   }
   setInterval(updateClock, 1000);
   updateClock();
-
-  function simulateActivity() {
-    if (!tickerTextElement) return;
-    blockedCount += Math.floor(Math.random() * 3) + 1;
-    const baseText = `[SYS_OK] SECURE_SOCKET: ACTIVE // PORT_FIREWALL: STANDBY // THREAT_LEVEL: 0 // ACTIVE_CONNECTION: LOCAL // MOCK_TRAFFIC_BLOCK: ${blockedCount} // SYSTEM_UPTIME: 99.98% // DEPLOYED_VER: 2.6.0-SEC // `;
-    tickerTextElement.textContent = baseText.repeat(5);
-  }
-  setInterval(simulateActivity, 5000);
-  simulateActivity();
 }
 
 /* ==========================================================================
@@ -587,10 +314,7 @@ function initCanvasGrid() {
   let width = (canvas.width = window.innerWidth);
   let height = (canvas.height = window.innerHeight);
 
-  const particles = [];
-  const maxParticles = 100;
-  const connectionDistance = 150;
-  const mouse = { x: null, y: null, radius: 250 };
+  const mouse = { x: null, y: null, radius: 220 };
 
   window.addEventListener('resize', () => {
     width = canvas.width = window.innerWidth;
@@ -607,74 +331,113 @@ function initCanvasGrid() {
     mouse.y = null;
   });
 
-  class Particle {
-    constructor() {
-      this.x = Math.random() * width;
-      this.y = Math.random() * height;
-      this.vx = (Math.random() - 0.5) * 0.4;
-      this.vy = (Math.random() - 0.5) * 0.4;
-      this.size = Math.random() * 2 + 1;
+  const hexRadius = 45; // Size of each hexagon
+  const hexWidth = hexRadius * Math.sqrt(3);
+  const hexHeight = hexRadius * 1.5;
+
+  const symbolsList = ["JS", "PY", "C++", "TS", "SQL", "GIT", "GO", "RUST", "HTML", "CSS", "K8s", "Docker", "React", "Node"];
+
+  function drawHexagon(x, y, r, glowVal, c, rIdx) {
+    ctx.beginPath();
+    for (let i = 0; i < 6; i++) {
+      const angle = (Math.PI / 3) * i + Math.PI / 6;
+      const px = x + r * Math.cos(angle);
+      const py = y + r * Math.sin(angle);
+      if (i === 0) ctx.moveTo(px, py);
+      else ctx.lineTo(px, py);
+    }
+    ctx.closePath();
+
+    // 1. Draw solid face — adapt fill for light/dark mode
+    const isColorful = document.body.classList.contains('theme-colorful');
+    // Light mode: warm honey-white hexagon faces; Dark mode: deep obsidian
+    ctx.fillStyle = isColorful
+      ? `rgba(245, 248, 252, ${0.65 + glowVal * 0.2})`
+      : `rgba(18, 20, 26, ${0.85 + glowVal * 0.1})`;
+    ctx.fill();
+
+    // 2. Draw border
+    const alpha = 0.08 + glowVal * 0.55;
+    let strokeColor, shadowColor;
+
+    if (isColorful) {
+      // Azure blue strokes — visible against the light off-white background
+      strokeColor = `rgba(29, 114, 212, ${alpha * 0.55})`;
+      shadowColor = `rgba(29, 114, 212, 0.2)`;
+    } else {
+      strokeColor = `rgba(0, 240, 255, ${alpha})`;
+      shadowColor = 'rgba(0, 240, 255, 0.4)';
     }
 
-    update() {
-      this.x += this.vx;
-      this.y += this.vy;
+    ctx.strokeStyle = strokeColor;
+    ctx.lineWidth = 1 + glowVal * 1.5;
 
-      if (this.x < 0) this.x = width;
-      if (this.x > width) this.x = 0;
-      if (this.y < 0) this.y = height;
-      if (this.y > height) this.y = 0;
+    // Add shadow glow for highly active borders
+    if (glowVal > 0.3) {
+      ctx.shadowColor = shadowColor;
+      ctx.shadowBlur = glowVal * 8;
+    } else {
+      ctx.shadowBlur = 0;
     }
 
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 3);
-      ctx.fillStyle = 'rgba(214, 31, 38, 0.7)';
-      ctx.fill();
-    }
+    ctx.stroke();
+    ctx.shadowBlur = 0; // reset
+
+    // 3. Draw programming language symbol in center
+    const symIdx = Math.abs((rIdx * 3 + c * 5)) % symbolsList.length;
+    const symbol = symbolsList[symIdx];
+
+    ctx.font = "10px 'Fira Code', Courier, monospace";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    // Light mode: azure-blue tinted text; Dark mode: cyan text
+    ctx.fillStyle = isColorful
+      ? `rgba(29, 114, 212, ${0.12 + glowVal * 0.6})`
+      : `rgba(0, 240, 255, ${0.08 + glowVal * 0.65})`;
+    ctx.fillText(symbol, x, y);
   }
 
-  for (let i = 0; i < maxParticles; i++) {
-    particles.push(new Particle());
-  }
-
+  let time = 0;
   function animate() {
+    time += 0.015;
     ctx.clearRect(0, 0, width, height);
 
-    particles.forEach(p => {
-      p.update();
-      p.draw();
-    });
+    // Calculate grid rows and cols to fill screen plus padding
+    const cols = Math.ceil(width / hexWidth) + 2;
+    const rows = Math.ceil(height / hexHeight) + 2;
 
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const p1 = particles[i];
-        const p2 = particles[j];
-        const dist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
+    for (let r = -1; r < rows; r++) {
+      for (let c = -1; c < cols; c++) {
+        // Position of hexagon center
+        let cx = c * hexWidth;
+        const cy = r * hexHeight;
 
-        if (dist < connectionDistance) {
-          const alpha = (1 - dist / connectionDistance) * 0.32;
-          ctx.beginPath();
-          ctx.moveTo(p1.x, p1.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = `rgba(214, 31, 38, ${alpha})`;
-          ctx.lineWidth = 1.2;
-          ctx.stroke();
+        // Shift odd rows
+        if (r % 2 !== 0) {
+          cx += hexWidth / 2;
         }
-      }
 
-      if (mouse.x !== null && mouse.y !== null) {
-        const p = particles[i];
-        const mDist = Math.hypot(p.x - mouse.x, p.y - mouse.y);
-        if (mDist < mouse.radius) {
-          const alpha = (1 - mDist / mouse.radius) * 0.45;
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(mouse.x, mouse.y);
-          ctx.strokeStyle = `rgba(214, 31, 38, ${alpha})`;
-          ctx.lineWidth = 1.2;
-          ctx.stroke();
+        // Calculate distance to mouse
+        let dist = mouse.radius;
+        if (mouse.x !== null && mouse.y !== null) {
+          dist = Math.hypot(cx - mouse.x, cy - mouse.y);
         }
+
+        // Calculate wave breathing effect based on coordinates
+        const breathe = Math.sin(time + (cx * 0.003) + (cy * 0.003)) * 0.5 + 0.5;
+
+        // Calculate local glow level
+        let glowVal = 0;
+        if (dist < mouse.radius) {
+          // mouse proximity override
+          glowVal = (1 - dist / mouse.radius);
+          glowVal = Math.pow(glowVal, 1.8); // make peak steeper
+        }
+
+        // combine with breathing background waves
+        glowVal = Math.max(glowVal, breathe * 0.08);
+
+        drawHexagon(cx, cy, hexRadius - 2, glowVal, c, r); // leaves a small 2px gap between cells
       }
     }
 
@@ -688,30 +451,40 @@ function initCanvasGrid() {
    MATRIX DECRYPT / SCRAMBLE EFFECT
    ========================================================================== */
 function runMatrixDecrypt(element) {
-  const chars = '01ABCDEFHIJKLMNOPQRSTUVWXYZ@#$%&[]';
   const target = element.dataset.value;
   if (!target) return;
-  let iteration = 0;
-  let interval = null;
+  element.innerText = '';
+  element.classList.add('typing-cursor');
 
-  clearInterval(interval);
+  let currentText = '';
+  let i = 0;
 
-  interval = setInterval(() => {
-    element.innerText = target
-      .split('')
-      .map((char, index) => {
-        if (index < iteration) {
-          return target[index];
+  function typeNextChar() {
+    if (i < target.length) {
+      const targetChar = target[i];
+      let scrambleCount = 0;
+      const chars = '01<>/#$@%&{}[];+=-*?';
+
+      const scrambleInterval = setInterval(() => {
+        if (scrambleCount < 2) {
+          element.innerText = currentText + chars[Math.floor(Math.random() * chars.length)];
+          scrambleCount++;
+        } else {
+          clearInterval(scrambleInterval);
+          currentText += targetChar;
+          element.innerText = currentText;
+          i++;
+          setTimeout(typeNextChar, Math.random() * 30 + 15);
         }
-        return chars[Math.floor(Math.random() * chars.length)];
-      })
-      .join('');
-
-    if (iteration >= target.length) {
-      clearInterval(interval);
+      }, 15);
+    } else {
+      setTimeout(() => {
+        element.classList.remove('typing-cursor');
+      }, 800);
     }
-    iteration += 1 / 2;
-  }, 25);
+  }
+
+  typeNextChar();
 }
 
 // Function to trigger scrambler on visible element markers
@@ -729,7 +502,7 @@ function initMatrixDecrypt() {
    SCROLL OBSERVATION & ACTIVE STATE
    ========================================================================== */
 function initScrollObserver() {
-  const reveals = document.querySelectorAll('.reveal');
+  const reveals = document.querySelectorAll('.reveal, .info-item');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -764,40 +537,18 @@ function initScrollObserver() {
 }
 
 /* ==========================================================================
-   PERSONA PROTOCOL SELECTOR
+   DEVELOPER PROFILE RENDERER
    ========================================================================== */
-function initPersonaSelector() {
-  const toggleButtons = document.querySelectorAll('.protocol-btn');
-  toggleButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const protocol = e.target.dataset.protocol;
-      switchPersona(protocol);
-    });
-  });
+function loadDeveloperProfile() {
+  const data = DEVELOPER_DATA;
 
-  // Default Load
-  switchPersona('vapt');
-}
-
-function switchPersona(personaId) {
-  const data = PERSONA_DATA[personaId];
-  if (!data) return;
-
-  // 1. Toggle button classes
-  document.querySelectorAll('.protocol-btn').forEach(btn => {
-    btn.classList.remove('active');
-    if (btn.dataset.protocol === personaId) {
-      btn.classList.add('active');
-    }
-  });
-
-  // 2. Telemetry indicator text
+  // 1. Telemetry indicator text
   const statusLightText = document.getElementById('protocol-status-text');
   if (statusLightText) {
     statusLightText.textContent = data.statusText;
   }
 
-  // 3. Update Hero Title (Role) & Bio
+  // 2. Update Hero Title (Role) & Bio
   const dynamicRole = document.getElementById('dynamic-role');
   if (dynamicRole) {
     dynamicRole.textContent = data.role;
@@ -809,7 +560,7 @@ function switchPersona(personaId) {
     dynamicSummary.textContent = data.summary;
   }
 
-  // 4. Update badges
+  // 3. Update badges
   const badgesContainer = document.getElementById('dynamic-badges');
   if (badgesContainer) {
     badgesContainer.innerHTML = data.badges
@@ -817,7 +568,7 @@ function switchPersona(personaId) {
       .join('');
   }
 
-  // 5. Update Biography
+  // 4. Update Biography
   const bioContainer = document.getElementById('about-biography');
   if (bioContainer) {
     bioContainer.innerHTML = data.biography
@@ -825,7 +576,7 @@ function switchPersona(personaId) {
       .join('');
   }
 
-  // 6. Update Metrics
+  // 5. Update Metrics
   const metricsContainer = document.getElementById('about-metrics');
   if (metricsContainer) {
     metricsContainer.innerHTML = data.metrics
@@ -837,25 +588,152 @@ function switchPersona(personaId) {
       `).join('');
   }
 
-  // 7. Update Skills
-  const skillsContainer = document.getElementById('skills-container');
-  if (skillsContainer) {
-    skillsContainer.innerHTML = data.skills
-      .map(group => `
-        <div class="skills-category-group">
-          <div class="skills-category-title">${group.category}</div>
-          <div class="skills-tags">
-            ${group.tags.map(t => {
-        const iconObj = getToolIcon(t);
-        const customStyle = iconObj.bgColor ? `style="background-color: ${iconObj.bgColor} !important;"` : '';
-        return `<div class="skill-tag icon-only" title="${t}" ${customStyle}>${iconObj.html}</div>`;
-      }).join('')}
-          </div>
-        </div>
-      `).join('');
+  // 6. U-Shaped Semicircle Skills Area logic (Invisible Floating Tube)
+  const skillsTrainItems = document.getElementById('skills-train-items');
+  const skillsToggleBtns = document.querySelectorAll('.skills-toggle-btn');
+  const detailIconWrap = document.getElementById('detail-icon-wrap');
+  const detailTitle = document.getElementById('detail-title');
+  const detailDesc = document.getElementById('detail-desc');
+
+  // Semicircle coordinates: Center (325, 40), Radius 280
+  const cx = 325;
+  const cy = 40;
+  const radius = 280;
+
+  let runningAnimationId = null;
+
+  function animateSkillsTrain(categoryKey) {
+    if (!skillsTrainItems) return;
+
+    if (runningAnimationId) {
+      cancelAnimationFrame(runningAnimationId);
+    }
+
+    skillsTrainItems.innerHTML = '';
+
+    const categorySkills = data.skills[categoryKey] || [];
+    const N = categorySkills.length;
+    if (N === 0) return;
+
+    const angleStep = Math.PI / (N - 1);
+
+    const nodes = categorySkills.map((skill, index) => {
+      const node = document.createElement('div');
+      node.className = 'skill-carriage-node';
+      node.style.left = '45px'; // Start coordinates (325 - 280 = 45px)
+      node.style.top = '40px';
+      node.style.opacity = '0';
+      node.innerHTML = `<img src="${skill.iconPath}" class="skill-carriage-img" alt="${skill.name} icon" />`;
+      skillsTrainItems.appendChild(node);
+
+      return {
+        element: node,
+        skill: skill,
+        targetAngle: Math.PI - (index * angleStep), // angles from Math.PI (left) down to 0 (right)
+        currentAngle: Math.PI,
+        staggerDelay: index * 90, // staggered delay per carriage
+        duration: 850, // slide duration
+        index: index
+      };
+    });
+
+    nodes.forEach(n => {
+      n.element.addEventListener('mouseenter', () => {
+        nodes.forEach(other => other.element.classList.remove('active'));
+        n.element.classList.add('active');
+
+        if (detailTitle) detailTitle.textContent = n.skill.name;
+        if (detailDesc) detailDesc.textContent = n.skill.desc;
+      });
+    });
+
+    const midIdx = Math.floor(N / 2);
+    if (categorySkills[midIdx]) {
+      const initialSkill = categorySkills[midIdx];
+      if (detailTitle) detailTitle.textContent = initialSkill.name;
+      if (detailDesc) detailDesc.textContent = initialSkill.desc;
+
+      setTimeout(() => {
+        if (nodes[midIdx] && nodes[midIdx].element) {
+          nodes[midIdx].element.classList.add('active');
+        }
+      }, midIdx * 90 + 850);
+    }
+
+    let animationStartTime = null;
+
+    function renderFrame(timestamp) {
+      if (!animationStartTime) animationStartTime = timestamp;
+      const elapsed = timestamp - animationStartTime;
+
+      const floatTime = timestamp * 0.0022; // continuous wave speed
+
+      nodes.forEach(n => {
+        let progress = 0;
+        if (elapsed >= n.staggerDelay) {
+          const moveElapsed = elapsed - n.staggerDelay;
+          progress = Math.min(1, moveElapsed / n.duration);
+
+          const ease = 1 - Math.pow(1 - progress, 3);
+          n.currentAngle = Math.PI - (ease * (Math.PI - n.targetAngle));
+        } else {
+          n.currentAngle = Math.PI;
+        }
+
+        // 1. Base coordinate calculation
+        let x = cx + radius * Math.cos(n.currentAngle);
+        let y = cy + radius * Math.sin(n.currentAngle);
+
+        // 2. Add continuous floating offset (once carriage starts moving)
+        if (progress > 0) {
+          const floatAmp = progress * 6; // scale float amplitude as it slides in
+          x += Math.sin(floatTime + n.index * 1.6) * floatAmp;
+          y += Math.cos(floatTime * 0.85 + n.index * 2.3) * floatAmp;
+        }
+
+        n.element.style.left = `${x}px`;
+        n.element.style.top = `${y}px`;
+
+        const fadeProgress = Math.max(0, elapsed - n.staggerDelay) / 300;
+        n.element.style.opacity = Math.min(1, fadeProgress);
+      });
+
+      // Run continuously to maintain floating effect
+      runningAnimationId = requestAnimationFrame(renderFrame);
+    }
+
+    runningAnimationId = requestAnimationFrame(renderFrame);
   }
 
-  // 8. Update Projects (With Filter Navigation Buttons)
+  skillsToggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      skillsToggleBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const category = btn.dataset.category;
+      animateSkillsTrain(category);
+    });
+  });
+
+  animateSkillsTrain('web');
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // 7. Update Projects (With Filter Navigation Buttons)
   const filterCategories = new Set(['all']);
   data.projects.forEach(p => filterCategories.add(p.category));
 
@@ -863,109 +741,233 @@ function switchPersona(personaId) {
   if (filterBar) {
     filterBar.innerHTML = Array.from(filterCategories).map(cat => {
       const activeClass = cat === 'all' ? 'active' : '';
-      const label = cat === 'all' ? 'All' : cat === 'cybersecurity' ? 'Cybersecurity' : cat === 'webdev' ? 'Web Dev' : cat === 'systems' ? 'Systems' : cat;
+      const label = cat === 'all' ? 'All' : cat === 'webdev' ? 'Web Dev' : cat === 'systems' ? 'Systems' : cat;
       return `<button class="filter-btn ${activeClass}" data-filter="${cat}">${label}</button>`;
     }).join('');
   }
 
-  const projectsContainer = document.getElementById('projects-container');
-  if (projectsContainer) {
-    projectsContainer.innerHTML = data.projects
-      .map(p => `
-        <div class="project-card" data-category="${p.category}">
-          <div class="project-image-wrapper">
-            <img src="${getProjectThumbnail(p.title)}" alt="${p.title} thumbnail" class="project-image" style="cursor: zoom-in;" onclick="openImageModal(this.src)" />
+  // Build a reusable card-HTML generator
+  function buildCardHTML(p) {
+    return `
+      <div class="project-card" data-category="${p.category}">
+        <div class="project-image-wrapper">
+          <img src="${getProjectThumbnail(p.title)}" alt="${p.title} thumbnail" class="project-image" style="cursor: zoom-in;" onclick="openImageModal(this.src)" />
+        </div>
+        <div class="project-info">
+          <div class="project-tags">
+            ${p.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}
           </div>
-          <div class="project-info">
-            <div class="project-tags">
-              ${p.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}
-            </div>
-            <h3 class="project-title">${p.title}</h3>
-            <p class="project-desc">${p.desc}</p>
-            <div class="project-links">
-              <a href="${p.github}" target="_blank" class="project-link">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                GitHub
+          <h3 class="project-title">${p.title}</h3>
+          <p class="project-desc">${p.desc}</p>
+          <div class="project-links">
+            <a href="${p.github}" target="_blank" class="project-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              GitHub
+            </a>
+            ${p.demo && p.demo !== '#' ? `
+              <a href="${p.demo}" target="_blank" class="project-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Live Demo
               </a>
-              ${p.demo && p.demo !== '#' ? `
-                <a href="${p.demo}" target="_blank" class="project-link">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                  Live Demo
-                </a>
-              ` : ''}
-            </div>
+            ` : ''}
           </div>
         </div>
-      `).join('');
+      </div>`;
   }
 
-  // 9. Update Timeline
+  const projectsContainer = document.getElementById('projects-container');
+  const projectsViewport = projectsContainer ? projectsContainer.parentElement : null;
+
+  // Render projects for a given filter and conditionally enable marquee
+  function renderFilteredProjects(filterVal) {
+    if (!projectsContainer) return;
+
+    const filtered = filterVal === 'all'
+      ? data.projects
+      : data.projects.filter(p => p.category === filterVal);
+
+    const cardsHTML = filtered.map(p => buildCardHTML(p)).join('');
+
+    // Temporarily render single set to measure total width
+    projectsContainer.innerHTML = cardsHTML;
+    projectsContainer.style.animation = 'none';
+    projectsContainer.classList.remove('marquee-active');
+    projectsContainer.classList.remove('marquee-static');
+
+    // Force layout to measure
+    requestAnimationFrame(() => {
+      const viewportWidth = projectsViewport ? projectsViewport.offsetWidth : window.innerWidth;
+      const contentWidth = projectsContainer.scrollWidth;
+
+      if (contentWidth > viewportWidth) {
+        // Cards overflow → duplicate for seamless marquee
+        projectsContainer.innerHTML = cardsHTML + cardsHTML;
+        projectsContainer.classList.add('marquee-active');
+        projectsContainer.classList.remove('marquee-static');
+        projectsContainer.style.animation = '';
+      } else {
+        // Cards fit → center-align, no animation
+        projectsContainer.classList.add('marquee-static');
+        projectsContainer.classList.remove('marquee-active');
+        projectsContainer.style.animation = 'none';
+      }
+    });
+  }
+
+  // Initial render with all projects
+  renderFilteredProjects('all');
+
+  // Wire up filter buttons
+  initProjectFilter(renderFilteredProjects);
+
+  // 8. Update Timeline (Premium Academic Progression Infographic)
   const timelineContainer = document.getElementById('experience-timeline');
   if (timelineContainer) {
-    timelineContainer.innerHTML = data.timeline
-      .map(t => `
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <span class="timeline-date">${t.date}</span>
-          <div class="timeline-card">
-            <h3 class="timeline-role">${t.role}</h3>
-            <span class="timeline-org">${t.org}</span>
-            <p class="timeline-desc">${t.desc}</p>
+    const timelineColors = [
+      { accent: '#F26419', glow: 'rgba(242, 100, 25, 0.2)' },  // Coral (Top, Freshman)
+      { accent: '#D81159', glow: 'rgba(216, 17, 89, 0.2)' },   // Pink (Sophomore)
+      { accent: '#3A86C8', glow: 'rgba(58, 134, 200, 0.2)' },   // Sky Blue (Junior)
+      { accent: '#0D9488', glow: 'rgba(13, 148, 136, 0.2)' }   // Teal (Bottom, Senior FYP)
+    ];
+
+    const timelineIcons = [
+      // Book (Freshman Year)
+      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="info-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>`,
+      // Database (Sophomore Year)
+      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="info-icon"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path></svg>`,
+      // Code Brackets (Junior Year)
+      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="info-icon"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
+      // Graduation Cap (Senior Year)
+      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="info-icon"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>`
+    ];
+
+    timelineContainer.innerHTML = [...data.timeline].reverse()
+      .map((t, idx) => {
+        const side = idx % 2 === 0 ? 'left' : 'right';
+        const colorSet = timelineColors[idx] || timelineColors[0];
+        const iconSVG = timelineIcons[idx] || timelineIcons[0];
+
+        // Extract Year and Subtitle
+        const yearMatch = t.date.match(/\d{4}/);
+        const year = yearMatch ? yearMatch[0] : '';
+        const titleMatch = t.date.match(/\(([^)]+)\)/);
+        const subTitle = titleMatch ? titleMatch[1].toUpperCase() : t.org.toUpperCase();
+
+        const badgeHTML = `
+          <div class="info-badge-wrap">
+            <div class="info-badge">
+              ${iconSVG}
+            </div>
           </div>
-        </div>
-      `).join('');
+        `;
+
+        const cardHTML = `
+          <div class="info-card-wrap">
+            <div class="info-card">
+              <div class="info-card-header">
+                <span class="info-year">${year}</span>
+                <div class="info-card-divider"></div>
+                <span class="info-title">${subTitle}</span>
+              </div>
+              <p class="info-desc">${t.desc}</p>
+              <div class="info-card-footer">
+                <span class="info-org">${t.org}</span>
+              </div>
+            </div>
+          </div>
+        `;
+
+        const prevColor = idx === 0 ? '#00A896' : timelineColors[idx - 1].accent;
+
+        return `
+          <div class="info-item info-item-${side}" style="--accent-color: ${colorSet.accent}; --accent-glow: ${colorSet.glow}; --prev-accent-color: ${prevColor};">
+            <!-- Left Column -->
+            <div class="info-col info-col-left">
+              ${side === 'left' ? badgeHTML : cardHTML}
+            </div>
+            
+            <!-- Center Column (Timeline Node & Segment) -->
+            <div class="info-col info-col-center">
+              <div class="info-segment-line-top"></div>
+              <div class="info-segment-line-bottom"></div>
+              <div class="info-node">
+                <div class="info-node-dot"></div>
+              </div>
+            </div>
+            
+            <!-- Right Column -->
+            <div class="info-col info-col-right">
+              ${side === 'left' ? cardHTML : badgeHTML}
+            </div>
+            
+            <!-- Horizontal Connector Line -->
+            <div class="info-connector"></div>
+          </div>
+        `;
+      }).join('');
   }
 
-  // 10. Update Certs / Courses
+  // 9. Update Certs / Courses
   const certContainer = document.getElementById('certifications-container');
   const certHeading = document.getElementById('certifications-heading');
   if (certContainer) {
     if (certHeading) {
-      certHeading.textContent = "Certifications and Achievements";
-      certHeading.dataset.value = "Certifications and Achievements";
+      certHeading.textContent = "Certifications";
+      certHeading.dataset.value = "Certifications";
+    }
+    const achieveHeading = document.getElementById('achievements-heading');
+    if (achieveHeading) {
+      achieveHeading.textContent = "Achievements";
+      achieveHeading.dataset.value = "Achievements";
     }
 
-    certContainer.innerHTML = data.certs
-      .map(c => {
-        if (c.status === "coming_soon") {
-          return `
-            <div class="cert-card coming-soon">
-              <div class="cert-coming-soon-front">
-                <div class="cert-icon">⏳</div>
-                <h3 class="cert-title">Coming Soon</h3>
-                <span class="cert-link disabled" style="opacity: 0.5; cursor: not-allowed; display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-family: var(--font-mono); color: var(--color-text-muted); margin-top: auto;">
-                  <span>Scheduled Protocol</span>
-                </span>
-              </div>
-              <div class="cert-coming-soon-hover">
-                <div class="cert-icon">${c.icon}</div>
-                <h3 class="cert-title">${c.title}</h3>
-                <span class="cert-issuer">${c.issuer}</span>
-                <span class="cert-link disabled" style="color: #fff; opacity: 0.9; font-size: 11px; font-family: var(--font-mono); margin-top: auto;">
-                  <span>InshALLAH soon</span>
-                </span>
-              </div>
-            </div>
+    // Render the cards with tails
+    const cardsHTML = data.certs.map((c, idx) => {
+      const stepNum = idx + 1;
+
+      // Define tail SVG based on odd/even step
+      let tailSVG = '';
+      if (stepNum < 7) {
+        if (stepNum % 2 !== 0) {
+          // Odd step: points down-right (centered on bottom-right side of card) with 90 degree angle (30px tail)
+          tailSVG = `
+            <svg class="achieve-tail-svg tail-down" viewBox="0 0 40 80">
+              <path d="M 0,10 L 30,40 L 0,70" fill="#ffffff" stroke="${c.gradEnd}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          `;
+        } else {
+          // Even step: points up-right (centered on top-right side of card) with 90 degree angle (30px tail)
+          tailSVG = `
+            <svg class="achieve-tail-svg tail-up" viewBox="0 0 80 40">
+              <path d="M 10,40 L 40,10 L 70,40" fill="#ffffff" stroke="${c.gradEnd}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
           `;
         }
-        return `
-          <div class="cert-card">
-            <div class="cert-icon">${c.icon}</div>
-            <h3 class="cert-title">${c.title}</h3>
-            <span class="cert-issuer">${c.issuer}</span>
-            ${c.link && c.link !== '#' ? `
-              <a href="${c.link}" target="_blank" class="cert-link">
-                <span>Verify Credential</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              </a>
-            ` : `
-              <span class="cert-link disabled" style="opacity: 0.5; cursor: not-allowed; display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-family: var(--font-mono); color: var(--color-text-muted);">
-                <span>Verification Pending</span>
-              </span>
-            `}
+      }
+
+      return `
+        <div class="achieve-step-wrapper achieve-step-${stepNum}" style="--grad-start: ${c.gradStart}; --grad-end: ${c.gradEnd}; --glow-color: ${c.glowColor};">
+          <div class="achieve-card-outer">
+            <div class="achieve-card-inner">
+              <div class="achieve-card-content">
+                <div class="achieve-step-badge">${stepNum}</div>
+                <h3 class="achieve-title">${c.title}</h3>
+                <p class="achieve-desc">${c.desc}</p>
+                <div class="achieve-icon-box">
+                  <svg class="achieve-svg" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    ${c.svgIcon}
+                  </svg>
+                </div>
+              </div>
+              ${tailSVG}
+              ${stepNum < 7 ? `<div class="achieve-mask-div"></div>` : ''}
+            </div>
           </div>
-        `;
-      }).join('');
+        </div>
+      `;
+    }).join('');
+
+    certContainer.innerHTML = cardsHTML;
   }
 
   // Trigger Matrix Scramble Reveal on text fields
@@ -976,9 +978,8 @@ function switchPersona(personaId) {
 /* ==========================================================================
    PROJECT FILTER ENGINE
    ========================================================================== */
-function initProjectFilter() {
+function initProjectFilter(renderCallback) {
   const filterButtons = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
 
   filterButtons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -986,22 +987,7 @@ function initProjectFilter() {
       btn.classList.add('active');
 
       const filterVal = btn.dataset.filter;
-
-      projectCards.forEach(card => {
-        if (filterVal === 'all' || card.dataset.category === filterVal) {
-          card.style.display = 'flex';
-          setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          }, 50);
-        } else {
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(20px)';
-          setTimeout(() => {
-            card.style.display = 'none';
-          }, 300);
-        }
-      });
+      renderCallback(filterVal);
     });
   });
 }
@@ -1140,7 +1126,7 @@ function initTerminal() {
   }
 
   function handleCommand(cmd) {
-    printLine(`guest@rana-ismail-shell:~$ <span class="command">${cmd}</span>`, '', 0);
+    printLine(`guest@huzaifa-shahbaz-shell:~$ <span class="command">${cmd}</span>`, '', 0);
     const parts = cmd.toLowerCase().split(' ');
     const primaryCmd = parts[0];
 
@@ -1149,63 +1135,53 @@ function initTerminal() {
         printLine(`System Commands Available:
   - <span class="info">about</span>              : Display developer biographical packet
   - <span class="info">skills</span>             : List technical stacks in order
-  - <span class="info">projects</span>           : Output highlighted works
-  - <span class="info">protocol &lt;name&gt;</span>     : Switch profile protocol ('vapt', 'grc', 'soc', 'devsecops')
-  - <span class="info">contact</span>            : Display encrypted communication endpoints
+  - <span class="info">projects</span>           : Output highlighted student projects
+  - <span class="info">contact</span>            : Display communication endpoints
   - <span class="info">theme</span>              : Toggle terminal text coloration
-  - <span class="info">matrix</span>             : Launch a secure visual matrix rain sequence
+  - <span class="info">matrix</span>             : Launch a visual matrix rain sequence
   - <span class="info">clear</span>              : Wipe local output buffer`);
         break;
 
       case 'about':
-        printLine(`Subject: Rana Ismail Ahmed
-Status: BS Cyber Security Graduate (FAST NUCES, Silver Medalist)
+        printLine(`Subject: Huzaifa Shahbaz
+Status: CS Undergraduate (FAST NUCES, Academic Achiever)
 DOB: 20 February 2004
-Focus: VAPT, GRC frameworks, SOC analytics, secure SDLC integration.`);
+Focus: Software Engineering, Full-Stack Web Development, Computer Science Foundations.`);
         break;
 
       case 'skills':
-        printLine(`* Active Technical Stack:
-  - Pen-Testing: Kali Linux, Burp Suite, Metasploit, OWASP ZAP, Nessus, Hydra
-  - Frameworks : Wazuh, Splunk, Graylog, CKA (Kubernetes), Docker, Git
-  - Languages  : Python, C++, SQL, KQL, Bash Scripting`);
+        printLine(`* Technical Stack:
+  - Languages: JavaScript, TypeScript, Python, C++, SQL, HTML/CSS
+  - Web Dev  : React.js, Node.js, Express, Next.js, Django, REST APIs
+  - Core CS  : Data Structures, Algorithms, OOP, Database Systems, Git`);
         break;
 
       case 'projects':
-        printLine(`* Highlighted Repositories:
-  - NucloGem/OctaRecon: Web testing and active recon pipelines.
-  - AI SIEM Extension : Log parsing, noise reduction and automated forensics.
-  - AI GRC Toolkit    : ISO27001, NIST CSF, PCI-DSS compliance RAG engine.
-  - Ecommerce SecOps  : Full-stack seller portal with automated SAST/DAST.`);
-        break;
-
-      case 'protocol':
-        const mode = parts[1];
-        if (['vapt', 'grc', 'soc', 'devsecops'].includes(mode)) {
-          switchPersona(mode);
-          printLine(`SUCCESS: System protocol swapped to ${mode.toUpperCase()}_ANALYST`, 'success');
-        } else {
-          printLine(`ERROR: Invalid protocol mode. Use 'vapt', 'grc', 'soc', or 'devsecops'.`, 'error');
-        }
+        printLine(`* Highlighted Student Projects:
+  - AlgoViz     : Sorting & pathfinding algorithm visualizer in React.
+  - DevFlow     : Full-stack Q&A developer forum (Next.js/NestJS).
+  - CampusCart  : Peer-to-peer student marketplace (Node.js/PostgreSQL).
+  - GradeTracker: GPA prediction and study logs dashboard (Python).
+  - TaskFlow    : WebSockets real-time team Kanban board (React/MongoDB).`);
         break;
 
       case 'contact':
-        printLine(`* Encryption Endpoints:
-  - Mail       : zismail.ths@gmail.com
+        printLine(`* Communication Endpoints:
+  - Mail       : huzaifa.shahbaz@gmail.com
   - Phone      : +92 319 9238727
-  - LinkedIn   : linkedin.com/in/rana-ismail-ahmed
-  - GitHub     : github.com/zismailths`);
+  - LinkedIn   : linkedin.com/in/huzaifa-shahbaz
+  - GitHub     : github.com/huzaifashahbaz`);
         break;
 
       case 'theme':
         const curColor = window.getComputedStyle(output).color;
-        if (curColor.includes('224') || curColor.includes('e0e0e0')) {
+        if (curColor.includes('224') || curColor.includes('e0e0e0') || curColor.includes('248')) {
           output.style.color = '#39FF14';
           input.style.color = '#39FF14';
           printLine('Theme set to: DIGITAL_GREEN', 'success');
         } else {
-          output.style.color = '#e0e0e0';
-          input.style.color = '#e0e0e0';
+          output.style.color = '#F8FAFC';
+          input.style.color = '#F8FAFC';
           printLine('Theme set to: WHITE_SMOKE', 'success');
         }
         break;
@@ -1286,104 +1262,32 @@ function initContactForm() {
 function getToolIcon(name) {
   const n = name.toLowerCase().trim();
   let file = '';
-  let isNew = false;
 
-  // Specific tool icon filenames mapping (Phase 1)
-  if (n.includes('kali linux') || n.includes('kali-linux')) file = 'kali_linux.png';
-  else if (n.includes('burp suite') || n.includes('burp-suite') || n.includes('burp_suit') || n.includes('burp')) file = 'burp_suit.png';
-  else if (n.includes('metasploit')) file = 'metasploit.png';
-  else if (n.includes('nuclei')) file = 'nuclei.png';
-  else if (n.includes('sqlmap')) file = 'sqlmap.png';
-  else if (n.includes('owasp zap') || n.includes('zap')) file = 'owasp_zap.png';
-  else if (n.includes('nessus')) file = 'nessus.png';
-  else if (n.includes('hydra')) file = 'hydra.png';
-  else if (n.includes('nmap')) file = 'nmap.png';
-  else if (n.includes('gobuster')) file = 'gobuster.png';
-  else if (n.includes('hashcat')) file = 'hashcat.png';
-  else if (n.includes('wazuh')) file = 'wazuh.png';
-  else if (n.includes('splunk')) file = 'splunk.png';
-  else if (n.includes('graylog')) file = 'graylog.png';
-  else if (n.includes('wireshark')) file = 'wireshark.png';
-  else if (n.includes('ghidra')) file = 'ghidra.png';
-  else if (n.includes('ida')) file = 'ida.png';
-  else if (n.includes('ftk')) file = 'ftk.png';
-  else if (n.includes('docker')) file = 'docker.png';
-  else if (n.includes('kubernetes administration')) file = 'kubernetes_administration.png';
-  else if (n.includes('kubernetes') || n.includes('k8s')) file = 'k8s.png';
-  else if (n.includes('jenkins')) file = 'jenkins.png';
-  else if (n.includes('sonarqube')) file = 'sonarqube.png';
-  else if (n.includes('postman')) file = 'postman.png';
-  else if (n.includes('selenium')) file = 'selenium.png';
-  else if (n.includes('jmeter') || n.includes('apache jmeter')) file = 'jmeter.png';
-  else if (n.includes('iriusrisk') || n.includes('irius_risk')) file = 'irius_risk.png';
-  else if (n.includes('threat dragon') || n.includes('threat_dragon')) file = 'threat_dragon.png';
-  else if (n.includes('python')) file = 'python.png';
+  // Specific tool icon filenames mapping (Developer Stacks)
+  if (n.includes('python')) file = 'python.png';
   else if (n.includes('c/c++') || n.includes('c++')) file = 'c_c++.png';
-  else if (n.includes('kql') || n.includes('kusto')) file = 'kql.png';
   else if (n.includes('mongodb')) file = 'mongodb.png';
-  else if (n.includes('bash') || n.includes('scripting')) file = 'bash.png';
   else if (n.includes('git') || n.includes('github')) file = 'git_github.png';
-  else if (n.includes('rest api') || n.includes('rest apis') || n.includes('api testing')) file = 'api_test.png';
-  else if (n.includes('api security')) file = 'api_sec.png';
-  else if (n.includes('api')) file = 'rest_api.png';
-  else if (n.includes('sql')) file = 'sql.png';
-  else if (n.includes('excel') || n.includes('audit tracking')) file = 'excel.png';
-  else if (n.includes('packet tracer') || n.includes('cpt')) file = 'cpt.png';
-
-  // Generic / Newly Added Skills mapping (Phase 2)
-  else if (n.includes('penetration testing') || n.includes('pen-testing')) { file = 'pentest.png'; isNew = true; }
-  else if (n.includes('web application testing')) { file = 'web_app_test.png'; isNew = true; }
-  else if (n.includes('reconnaissance automation')) { file = 'recon_auto.png'; isNew = true; }
-  else if (n.includes('vulnerability assessment')) { file = 'vuln_assess.png'; isNew = true; }
-  else if (n.includes('threat modeling')) { file = 'threat_modeling.png'; isNew = true; }
-  else if (n.includes('exploit development')) { file = 'exploit_dev.png'; isNew = true; }
-  else if (n.includes('risk assessment')) { file = 'risk_assess.png'; isNew = true; }
-  else if (n.includes('it auditing')) { file = 'it_audit.png'; isNew = true; }
-  else if (n.includes('compliance analysis')) { file = 'compliance_analysis.png'; isNew = true; }
-  else if (n.includes('governance frameworks') || n.includes('governance')) { file = 'governance_framework.png'; isNew = true; }
-  else if (n.includes('policy evaluation')) { file = 'policy_evaluation.png'; isNew = true; }
-  else if (n.includes('control assessment')) { file = 'control_assessment.png'; isNew = true; }
-  else if (n.includes('gap analysis')) { file = 'gap_analysis.png'; isNew = true; }
-  else if (n.includes('iso 27001') || n.includes('iso')) { file = 'iso.png'; isNew = true; }
-  else if (n.includes('nist')) { file = 'nist.png'; isNew = true; }
-  else if (n.includes('gdpr')) { file = 'gdpr.png'; isNew = true; }
-  else if (n.includes('soc 2') || n.includes('soc2')) { file = 'soc2.png'; isNew = true; }
-  else if (n.includes('risk management lifecycle') || n.includes('risk management')) { file = 'rm_lifecycle.png'; isNew = true; }
-  else if (n.includes('threat detection')) { file = 'threat_detect.png'; isNew = true; }
-  else if (n.includes('siem monitoring') || n.includes('siem')) { file = 'siem.png'; isNew = true; }
-  else if (n.includes('log analysis')) { file = 'log_analysis.png'; isNew = true; }
-  else if (n.includes('alert triaging') || n.includes('alerts')) { file = 'alerts.png'; isNew = true; }
-  else if (n.includes('event correlation')) { file = 'event_corr.png'; isNew = true; }
-  else if (n.includes('digital forensics')) { file = 'digital_forensics.png'; isNew = true; }
-  else if (n.includes('network forensics')) { file = 'network_forensics.png'; isNew = true; }
-  else if (n.includes('devsecops')) { file = 'ssdlc.png'; isNew = true; }
-  else if (n.includes('ci/cd security')) { file = 'cicd.png'; isNew = true; }
-  else if (n.includes('secure sdlc') || n.includes('ssdlc')) { file = 'ssdlc.png'; isNew = true; }
-  else if (n.includes('vulnerability management')) { file = 'vuln_manag.png'; isNew = true; }
-  else if (n.includes('sast / dast testing') || n.includes('sast') || n.includes('dast')) { file = 'sast.png'; isNew = true; }
-  else if (n.includes('secure software design')) { file = 'ssd.png'; isNew = true; }
-  else if (n.includes('automated testing')) { file = 'automated_test.png'; isNew = true; }
-  else if (n.includes('load & performance testing') || n.includes('performance testing')) { file = 'load_perf.png'; isNew = true; }
-  else if (n.includes('ai/ml integration') || n.includes('ai/ml')) { file = 'ai_ml.png'; isNew = true; }
-  else if (n.includes('oop principles') || n.includes('oop')) { file = 'oop.png'; isNew = true; }
-  else if (n.includes('linux')) file = 'bash.png';
+  else if (n.includes('rest api') || n.includes('api')) file = 'rest_api.png';
+  else if (n.includes('sql') || n.includes('postgresql')) file = 'sql.png';
+  else if (n.includes('docker')) file = 'docker.png';
+  else if (n.includes('kubernetes') || n.includes('k8s')) file = 'k8s.png';
+  else if (n.includes('excel')) file = 'excel.png';
+  else if (n.includes('oop')) file = 'oop.png';
+  else if (n.includes('automated testing')) file = 'automated_test.png';
+  else if (n.includes('load & performance testing')) file = 'load_perf.png';
+  else if (n.includes('ai/ml')) file = 'ai_ml.png';
+  else if (n.includes('bash')) file = 'bash.png';
 
   let html = '';
   if (file) {
     html = `<img src="assets/icons/${file}" alt="${name} logo" class="tool-icon-img" style="object-fit: contain; transition: all 0.3s ease;" />`;
   } else {
-    html = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tool-icon-svg" style="color: var(--color-text-muted);"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`;
+    // Clean Code Brackets SVG fallback for developer skills
+    html = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tool-icon-svg" style="color: var(--color-primary); width: 60%; height: 60%;"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`;
   }
 
-  let bgColor = '#181818'; // Default phase-1 background
-  if (n.includes('api security') || n.includes('api testing') || n.includes('rest api') || n === 'api') {
-    bgColor = '#131313';
-  } else if (n.includes('kubernetes administration') || n === 'kubernetes administration') {
-    bgColor = '#131313';
-  } else if (isNew) {
-    bgColor = '#121312'; // Default phase-2 background
-  }
-
+  let bgColor = ''; // Omit background color override to allow style.css theme to apply
   return { html, bgColor };
 }
 
@@ -1392,12 +1296,11 @@ function getToolIcon(name) {
    ========================================================================== */
 function getProjectThumbnail(title) {
   const t = title.toLowerCase();
-  if (t.includes('nuclogem')) return 'assets/thumbnails/nuclogem.png';
-  if (t.includes('octarecon')) return 'assets/thumbnails/octarecon.png';
-  if (t.includes('siem') || t.includes('fyp')) return 'assets/thumbnails/fyp.png';
-  if (t.includes('ecommerce') || t.includes('e-commerce') || t.includes('ecom')) return 'assets/thumbnails/ecom.png';
-  if (t.includes('anonymizer')) return 'assets/thumbnails/anonymizer.png';
-  if (t.includes('grc')) return 'assets/thumbnails/grc.png';
+  if (t.includes('algoviz') || t.includes('visualizer')) return 'assets/thumbnails/nuclogem.png';
+  if (t.includes('devflow')) return 'assets/thumbnails/grc.png';
+  if (t.includes('campuscart') || t.includes('marketplace')) return 'assets/thumbnails/ecom.png';
+  if (t.includes('gradetracker') || t.includes('gpa')) return 'assets/thumbnails/anonymizer.png';
+  if (t.includes('taskflow') || t.includes('kanban')) return 'assets/thumbnails/fyp.png';
   return 'assets/thumbnails/nuclogem.png';
 }
 
@@ -1407,7 +1310,7 @@ function getProjectThumbnail(title) {
 function openImageModal(src, isCertificate = false) {
   const modal = document.createElement('div');
   modal.className = 'project-image-modal';
-  
+
   let modalHTML = `
     <div class="project-image-modal-content">
       <img src="${src}" alt="Preview Image" />
@@ -1416,7 +1319,7 @@ function openImageModal(src, isCertificate = false) {
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
     </button>
   `;
-  
+
   if (isCertificate) {
     modalHTML += `
       <button class="modal-nav-btn prev-cert-btn" aria-label="Previous Certificate">
@@ -1598,3 +1501,41 @@ function initCertCarousel() {
   window.addEventListener('resize', updateCarousel);
   updateCarousel();
 }
+
+/* ==========================================================================
+   THEME TOGGLE MODE CONTROLLER
+   ========================================================================== */
+function initThemeToggle() {
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const themeBtnText = document.getElementById('theme-btn-text');
+
+  if (!themeToggleBtn || !themeBtnText) return;
+
+  const savedTheme = localStorage.getItem('theme-mode');
+
+  function setTheme(theme) {
+    if (theme === 'colorful') {
+      document.body.classList.add('theme-colorful');
+      themeBtnText.textContent = 'Colorful';
+      localStorage.setItem('theme-mode', 'colorful');
+    } else {
+      document.body.classList.remove('theme-colorful');
+      themeBtnText.textContent = 'Dark';
+      localStorage.setItem('theme-mode', 'dark');
+    }
+  }
+
+  // Apply saved preference on load
+  if (savedTheme === 'colorful') {
+    setTheme('colorful');
+  } else {
+    setTheme('dark');
+  }
+
+  // Toggle on click
+  themeToggleBtn.addEventListener('click', () => {
+    const isColorful = document.body.classList.contains('theme-colorful');
+    setTheme(isColorful ? 'dark' : 'colorful');
+  });
+}
+
